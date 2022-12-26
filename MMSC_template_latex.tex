@@ -1,0 +1,26 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt,landscape]{article}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,showframe]{geometry}
+\usepackage{xcolor,fancyhdr}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,physics}
+\usepackage{stmaryrd}
+\include{stylefile}
+
+\usepackage{lineno}
+\linenumbers
+\setpagewiselinenumbers
+
+%%%%%%%%%%%%%  PLEASE DO NOT EDIT ANY OF THE LINES ABOVE %%%%%%%%%%%%%%%
+% Insert your text between "\begin{document}" and "\end{document}" below. 
+% The total length of your summary notes should not exceed 2 sides of a
+% single sheet of A4, with maximum 58 lines of text per page.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document} \noindent
+\textcolor{red}{APDE:} \textbf{Charpit:} $F(p,q,u,x,y)=0$ with $\color{blue}{u_x = p,u_y=q}$. Then via $F_x,F_y, \& \: p_y=q_x \rightarrow \color{blue}{p_\tau = -F_x - pF_u}$, $\color{blue}{q_\tau = -F_y-qF_u}, \color{blue}{u_\tau = pF_p + qF_q}$. Also, $\color{blue}{u0_s = p_0x0_s + q_0y0_s; F_0 = 0}$.
+\textbf{Riemann:} $\int_D RLu - uL^*R$ $= \int_D \partial_x \left( Ru_y + auR \right)+ \partial_y\left( -u R_x + buR \right) = \int_{\partial D} dy \left( Ru_y+Rau \right) + dx \left( uR_x - buR \right)$. Expand over triangle going B-P-A (B at bottom right) $\rightarrow$ need $R_x = bR @y=\eta, R_y = aR@ x=\xi, R(P) = 1, L^*R = 0$.
+\textbf{Canonical:} For $au_{xx}+2bu_{xy}+cu_{yy}=f$, we need \textcolor{blue}{Cauchy-Kowalevski} s.t. first derivs defined: $x':= \frac{dx}{ds} $ s.t. on $\Gamma$ $p_0' = x_0'u_{xx}+ y_0'u_{xy},q_0'=x_0'u_{xy}+y_0'u_{yy}.$ Use these 3, solve det A!=0 s.t. $a y_0'^2 -2 b x_0' y_0'+ c x_0'^2 \neq 0$. Solve quadratic s.t. $b^2>ac \rightarrow h, b^2<ac \rightarrow e, b^2=ac \rightarrow p$. \textcolor{blue}{H:} $\lambda_1, \lambda_2 \rightarrow \xi, \eta$. \textcolor{blue}{E:}  $\lambda = \lambda_R \pm i \lambda_I; \lambda_R \rightarrow \xi, \lambda_I \rightarrow \eta$. \textcolor{blue}{P:} $\lambda_1 \rightarrow \xi$, choose $\eta$ independent e.g. $xy, x^2$.
+\textbf{Green's Fn:} For $ u_{xx} + u_{yy} + au_x +bu_y +cu=f $ we have $\int_D GLu-uL^*G = \int_D \left( u_x G \right)_x + \left( u_y G \right)_y - \left( uG_x \right)_x - \left( uG_y \right)_y + \left( auG \right)_x + \left( auG \right)_y = \int_D \grad \cdot \left( u_n G - u G_n \right)$+ $\grad \cdot \left( (a \:  b)^{T} \hat n G u\right) = \int_{\partial D} u_n G - u G_n + (a \:  b)^{T} \hat n G u = \int_{\partial D} - u G_n$.
+\\ \textcolor{red}{SAM:} \textbf{Dists:} Need linearity and continuity: $\exists N,C$ s.t. $| (u, \phi)| \leq C \sum_{m\leq N} \max_{in [-X,X]} | \phi^{(m)}| $
+\end{document}
