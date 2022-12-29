@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1672237021 "MMSC_template_latex.tex" "MMSC_template_latex.pdf" "MMSC_template_latex" 1672237022
+["pdflatex"] 1672330767 "MMSC_template_latex.tex" "MMSC_template_latex.pdf" "MMSC_template_latex" 1672330768
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1650183167 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1650183167 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -27,6 +27,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1650183167 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1650183167 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1650183167 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb" 1650183167 36912 b448ef9ad9d7228ec3c6e71005136d55 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1650183167 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1650183167 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1650183167 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
@@ -136,8 +137,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1669761491 4279749 bb23f2b98a377c1622c83b4f54f23034 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1669761464 2927658 300d43e1a45a9c55fc612693de5e2398 ""
-  "MMSC_template_latex.aux" 1672237021 370 9edc5e3070dd06bd86790790d39cff48 "pdflatex"
-  "MMSC_template_latex.tex" 1672237020 5449 0614278b7b80df1a0f446737c20b86fb ""
+  "MMSC_template_latex.aux" 1672330768 442 675aeaeb82d2fa540637ce28e7c8d387 "pdflatex"
+  "MMSC_template_latex.tex" 1672330767 6562 df69a87e7512ebb6c928d5cee830cc57 ""
   "stylefile" 0 -1 0 ""
   (generated)
   "MMSC_template_latex.aux"
