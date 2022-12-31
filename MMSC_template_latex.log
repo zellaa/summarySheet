@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  30 DEC 2022 17:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  31 DEC 2022 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -563,8 +563,10 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
 (Font)              using `U/stmry/m/n' instead on input line 25.
 
+[1
 
-Overfull \hbox (1.4324pt too wide) in paragraph at lines 21--46
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (1.4324pt too wide) in paragraph at lines 30--48
 [][] [] \OML/cmm/m/it/10 dx u\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[]v\OT1/cmr/m/n
 /10 )$ \OT1/cmr/bx/n/10 Par-se-val: $[][] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10
  dk v\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ) [] = [] \OML/cmm/m/it
@@ -572,26 +574,23 @@ Overfull \hbox (1.4324pt too wide) in paragraph at lines 21--46
  []
 
 
-Overfull \hbox (2.41745pt too wide) in paragraph at lines 21--46
+Overfull \hbox (2.41745pt too wide) in paragraph at lines 30--48
 [][][][]$\OT1/cmr/m/n/10 . $[][] = \OML/cmm/m/it/10 ^^[[] \OT1/cmr/m/n/10 = []$
  as sym-met-ric. If $\OML/cmm/m/it/10 ^^U \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [\
 OML/cmm/m/it/10 ; ^^L\OT1/cmr/m/n/10 ]$ then $\OML/cmm/m/it/10 ^^U[] \OMS/cmsy
 /m/n/10 ^^T [] []$\OT1/cmr/m/n/10 .
  []
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./MMSC_template_latex.aux)
+[2] (./MMSC_template_latex.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 14983 strings out of 478238
- 288583 string characters out of 5850455
- 597085 words of memory out of 5000000
- 32962 multiletter control sequences out of 15000+600000
+ 14985 strings out of 478238
+ 288596 string characters out of 5850455
+ 585114 words of memory out of 5000000
+ 32964 multiletter control sequences out of 15000+600000
  474627 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,7n,104p,1008b,133s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -608,10 +607,10 @@ ts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb>
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on MMSC_template_latex.pdf (1 page, 186547 bytes).
+Output written on MMSC_template_latex.pdf (2 pages, 188148 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
