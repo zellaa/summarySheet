@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  1 JAN 2023 15:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  2 JAN 2023 16:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -561,7 +561,15 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
 (/usr/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 25.
+(Font)              using `U/stmry/m/n' instead on input line 27.
+
+
+Overfull \hbox (15.42943pt too wide) in paragraph at lines 21--32
+\OT1/cmr/m/n/10 en-sure IVP to get $\OML/cmm/m/it/10 R[]; R[]$\OT1/cmr/m/n/10 !
+ \OT1/cmr/bx/n/10 R-H: \OT1/cmr/m/n/10 De-rived via $\OML/cmm/m/it/10 P[]  \OT1
+/cmr/m/n/10 + \OML/cmm/m/it/10 Q[]  \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 R  \OMS/
+cmsy/m/n/10 ! [][] [][] \OT1/cmr/m/n/10 + [][] ([][]) =
+ []
 
 [1
 
@@ -578,7 +586,7 @@ Here is how much of TeX's memory you used:
  32964 multiletter control sequences out of 15000+600000
  474627 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,7n,104p,1008b,133s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,7n,104p,1008b,135s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -592,7 +600,7 @@ ts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb>
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on MMSC_template_latex.pdf (2 pages, 191732 bytes).
+Output written on MMSC_template_latex.pdf (2 pages, 193874 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
