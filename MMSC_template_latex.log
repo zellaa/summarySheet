@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  4 JAN 2023 00:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  4 JAN 2023 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,24 +573,8 @@ cmsy/m/n/10 ! [][] [][] \OT1/cmr/m/n/10 + [][] ([][]) =
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (2.1802pt too wide) in paragraph at lines 32--57
-\OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 (^^A\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )[]\O
-ML/cmm/m/it/10 U[] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 ((^^
-A\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 U[]\OT1/cmr/m/n/10 ) \OM
-S/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 c[]D[] []$\OT1/cmr/m/n/10 . Then use $[][][]
- 
- []
-
-
-Overfull \hbox (13.15256pt too wide) in paragraph at lines 32--57
-[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 dk []e[] \OT1/cmr/m/n/10 = 2\OML/cmm/m
-/it/10 ^^YF[] [] \OMS/cmsy/m/n/10 ) [][]$ \OT1/cmr/bx/n/10 It-er-a-tive: \OT1/c
-mr/m/n/10 If $\OML/cmm/m/it/10 U[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 U[] \OMS/
-cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^\ [] \OMS/cmsy/m/n/10 !
- []
-
-[2] (./MMSC_template_latex.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+(./MMSC_template_latex.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -598,11 +582,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  14985 strings out of 478238
  288596 string characters out of 5850455
- 600112 words of memory out of 5000000
+ 604114 words of memory out of 5000000
  32964 multiletter control sequences out of 15000+600000
  474627 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,7n,104p,1016b,135s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,7n,104p,781b,135s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -616,7 +600,7 @@ ts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb>
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on MMSC_template_latex.pdf (2 pages, 197536 bytes).
+Output written on MMSC_template_latex.pdf (2 pages, 198966 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
