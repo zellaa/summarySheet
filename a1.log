@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  5 JAN 2023 14:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  5 JAN 2023 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -564,14 +564,6 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
 (Font)              using `U/stmry/m/n' instead on input line 27.
 
-
-Overfull \hbox (15.42943pt too wide) in paragraph at lines 21--59
-\OT1/cmr/m/n/10 en-sure IVP to get $\OML/cmm/m/it/10 R[]; R[]$\OT1/cmr/m/n/10 !
- \OT1/cmr/bx/n/10 R-H: \OT1/cmr/m/n/10 De-rived via $\OML/cmm/m/it/10 P[]  \OT1
-/cmr/m/n/10 + \OML/cmm/m/it/10 Q[]  \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 R  \OMS/
-cmsy/m/n/10 ! [][] [][] \OT1/cmr/m/n/10 + [][] ([][]) =
- []
-
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./a1.aux)
@@ -598,7 +590,7 @@ e1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on a1.pdf (1 page, 153377 bytes).
+Output written on a1.pdf (1 page, 153343 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
