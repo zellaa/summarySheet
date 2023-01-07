@@ -20,19 +20,24 @@
 \definecolor{fg}{RGB}{34,139,34}
 \begin{document} \noindent
 \textcolor{red}{NLA:} \textbf{Cholesky} For matrix $\left[ a_{11},w^*;w,K \right] = R_1^T \left[ I,0;0,K- \frac{w w^*}{a_{11}}  \right]\left[ \alpha, w^*/\alpha;0,I \right]  $ we have a decomp: \textcolor{blue}{for $k=[1,m-1]:$} \textcolor{fg}{for $j=[k+1,m]$} $R_{j,j:m} = R_{j,j:m} - \frac{R_{kj}}{R_{kk}} R_{k,j:m}$ \textcolor{fg}{endfor} $R_{k,k:m} = \frac{R_{k,k:m}}{\sqrt{ R_{kk} }} $ \textcolor{blue}{endfor}. $ \frac{m^3}{3} $. 
-\textbf{Householder} \textcolor{blue}{for $k=[1,n]:$} $x=A_{k:m,k}; v_k = sgn(x) \norm{x}e_k+x;v_k= \frac{v_k}{\norm{v_k}} $ \textcolor{fg}{for $j=[k,n]$} $A_{k:m,j} = A_{k:m,j} - 2v_k\left[ v_k^* A_{k:m,j} \right]$ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $ \frac{2mn^2}{3} $. 
-\textbf{LU} $U=A,L=I$ \textcolor{blue}{for $k=[1,m-1]:$} \textcolor{fg}{for $j=[k+1,m]$} $U_{j,k:m} = U_{j,k:m} - \frac{U_{jk}}{U_{kk}} U_{k,k:m}  $ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $ \frac{2m^3}{3} $. 
+\textbf{Householder} \textcolor{blue}{for $k=[1,n]:$} $x=A_{k:m,k}; v_k = sgn(x) \norm{x}e_k+x;v_k= \frac{v_k}{\norm{v_k}} $ \textcolor{fg}{for $j=[k,n]$} $A_{k:m,j} = A_{k:m,j} - 2v_k\left[ v_k^* A_{k:m,j} \right]$ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $2mn^2 - \frac{2n^3}{3} $. 
+\textbf{LU} $U=A,L=I$ \textcolor{blue}{for $k=[1,m-1]:$} \textcolor{fg}{for $j=[k+1,m]$} $L_{jk} = \frac{U_{jk}}{U_{kk}}; U_{j,k:m} = U_{j,k:m} - (\frac{U_{jk}}{U_{kk}}) U_{k,k:m}  $ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $ \frac{2m^3}{3} $. 
 \textbf{MG-S} $V=A;$\textcolor{blue}{for $i=[1,n]:$} $r_{ii}=\norm{v_i}; q_i = \frac{v_i}{r_{ii}}$;\textcolor{fg}{for $j=[i+1,n]$} $ v_j = v_j - ( q_i^T v_j )q_i; r_{ij} = q_i^Tv_j $ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $ 2mn^2$. 
+\textbf{G-S} $V=A;$\textcolor{blue}{for $i=[1,n]$}\textcolor{fg}{for $j=[1,i-1]$} $ r_{ji} =q_j^T a_i; v_i = v_i - r_{ji}q_j $ \textcolor{fg}{endfor} $r_{ii} = \norm{v_i}; q_i = v_i/r_{ii}$ \textcolor{blue}{endfor}. $ 2mn^2$?. 
 \textbf{Givens} $3mn^2$
 \textbf{SVD:} $= \sum_i^{r:= \min{m,n}} u_i \sigma_i v_i^T$.
 \textbf{Bounds:} $\norm{ABB^{-1}} \geq \norm{AB} \norm{B^{-1}} \rightarrow \norm{A}/\norm{B^{-1}}\geq \norm{AB}$.
+\textbf{Weyls:} $\sigma_i(A+B) = \sigma_i(A) + [-\norm{B},\norm{B}]$
 \textbf{Norms:}$\norm{A}_F = \sqrt{\sum_i\left( \sigma_i \right)^2} =\sqrt{Tr\left( AA^T \right)}$, $\norm{A}_\infty=$ max row sum.
+\textbf{Rev $\Delta$ Ineq:} $\norm{A-B} \geq \abs{ \norm{A}-\norm{B} }$
 \textbf{Low-Rank:} For $A\in \mathbb{R}^{m\times n} \min \norm{A-B} = \norm{A-A_r}$. Proof via $B := B_1 B_2^T$ with $B_1 \in \mathbb{R}^{m\times r}$; $\exists W s.t. B_2^{T} W = 0$ with null($W$)$\geq n-r$. Then $\exists \: x_V,x_W s.t. V_{r+1}x_V = - W x_W$. So $\norm{A-B} = \norm{AW} \geq \norm{A V_{r+1} x_V} \geq \sigma_{r+1}$ For reverse $B:= A_r$
 \textbf{Courant:} $\sigma_i = \max_{dim(S)=i}\left\{ \min_{x} \norm{Ax}/\norm{x} \right\}$. Proof via $V_i = [v_i \dots v_n]$, so dim($S$)+dim($V_i$) $=n+1$ so $\exists \: w\in S \cap V_i$. Then $\norm{Aw} \leq \sigma_i$. For reverse take $w=v_i$ when $S=[v_1\dots v_i]$
 \textbf{Schur:} Take $A v_1 = \lambda_1 v_1$; construct $U_1 = [v_1, V_\perp] \rightarrow A U_1 = U_1 [e_1,X]$. Repeat.
 \textbf{Back Subst:} For $Ux=y$ we have $x_{n-i} = \left( y_{n-i} - \sum_{n-i+1}^n u_{n-i,j}x_j \right)/u_{n-i,n-i}; O(i)$ per iteration so $O(n^2)$ total.
 \textbf{Backwards Stable:} When $\hat f(x) = f (x + \Delta x)$ with $\norm{\Delta x}/\norm{x} \leq O(\varepsilon)$
 \textbf{Conditioning} $\kappa_2(A) = \sigma_1 /\sigma_n = \norm{A}\norm{A^{-1}}$
+\textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
+\textbf{Elementary L:} Define via $L_i(m) = I - me_i^T$
 \\ \textcolor{red}{NPDE:} \textbf{Def'n:} With $u_{tt}-c^2 u_{xx} = f$ have $\Delta x =(b-a)/J, \Delta t = T/M, x_j = a+j \Delta x, t = m \Delta t$. I.C: $U^0_j = u_0(x_j), U_j^1 = U_j^0+ u_1(x_j) \Delta t, U_0^m = U_J^m = 0$
 \textbf{Hyp Impl:} $\left( A-B,A \right) = \frac{1}{2}( \norm{A}^2-\norm{B}^2) + \frac{1}{2} \norm{A-B}^2$ with $\textcolor{blue}{A:= U^{m+1}-U^m}, \textcolor{fg}{B:= U^m - U^{m-1}}$ (T);$(-D_x^+D_x^-U^{m+1},U^{m+1}-U^m) = ( D_x^-U^{m+1} - D_x^- U^m,D_x^-U^{m+1})$ (X). Then $\frac{1}{2 \Delta t^{2}} ( \norm{U^{m+1}-U^m}^2 - \norm{U^m- U^{m-1}}^2 ) + \frac{\Delta t^2 }{ 2 \Delta t^2} \norm{ U^{m+1}-2U^m+U^{m-1} }^2 + \frac{c^2}{2} \left( \norm{ D_x^- U^{m+1} }^2 - \norm{D_x^-U^{m}}^2 \right) + \frac{c^2 \Delta t^2}{ 2 \Delta t^2} \norm{D_x^- (U^{m+1} - U^m)}^2 =
 \textcolor{fg}{(f, U^{m+1} - U^m)} $. Then
