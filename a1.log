@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  7 JAN 2023 13:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.29)  9 JAN 2023 14:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,7 +562,7 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
 (/usr/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 29.
+(Font)              using `U/stmry/m/n' instead on input line 30.
 
 [1
 
@@ -574,7 +574,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  14983 strings out of 478238
  288396 string characters out of 5850455
- 576051 words of memory out of 5000000
+ 582051 words of memory out of 5000000
  32962 multiletter control sequences out of 15000+600000
  474627 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -591,7 +591,7 @@ ts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on a1.pdf (1 page, 167619 bytes).
+Output written on a1.pdf (1 page, 173621 bytes).
 PDF statistics:
  81 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1673099948 "a1.tex" "a1.pdf" "a1" 1673099948
+["pdflatex"] 1673274466 "a1.tex" "a1.pdf" "a1" 1673274466
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1650183167 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1650183167 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -137,8 +137,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1669761491 4279749 bb23f2b98a377c1622c83b4f54f23034 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1669761464 2927658 300d43e1a45a9c55fc612693de5e2398 ""
-  "a1.aux" 1673099948 370 9edc5e3070dd06bd86790790d39cff48 "pdflatex"
-  "a1.tex" 1673099947 5312 ef209ab2fcd8dac99411668de6e89f12 ""
+  "a1.aux" 1673274466 430 ce20c8ef41da3f9b4843613387020533 "pdflatex"
+  "a1.tex" 1673274466 6294 1231d5ac83ee83829dbb779f1ed36a6a ""
   "stylefile" 0 -1 0 ""
   (generated)
   "a1.aux"
