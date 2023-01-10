@@ -26,6 +26,7 @@
 \textbf{G-S} $V=A;$\textcolor{blue}{for $i=[1,n]$}\textcolor{fg}{for $j=[1,i-1]$} $ r_{ji} =q_j^T a_i; v_i = v_i - r_{ji}q_j $ \textcolor{fg}{endfor} $r_{ii} = \norm{v_i}; q_i = v_i/r_{ii}$ \textcolor{blue}{endfor}. $ 2mn^2$?. 
 \textbf{Givens} $3mn^2$
 \textbf{SVD:} $= \sum_i^{r:= \min{m,n}} u_i \sigma_i v_i^T$.
+\textbf{Construct SVD:} Write $A^TA=V\Gamma V^T \rightarrow (AV)^T(AV) = \Sigma^2$, and $AV\Sigma^{-1}:=U$
 \textbf{Bounds:} $\norm{ABB^{-1}} \geq \norm{AB} \norm{B^{-1}} \rightarrow \norm{A}/\norm{B^{-1}}\geq \norm{AB}$.
 \textbf{Weyls:} $\sigma_i(A+B) = \sigma_i(A) + [-\norm{B},\norm{B}]$
 \textbf{Norms:}$\norm{A}_F = \sqrt{\sum_i\left( \sigma_i \right)^2} =\sqrt{Tr\left( AA^T \right)}$, $\norm{A}_\infty=$ max row sum.
