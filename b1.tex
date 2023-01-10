@@ -32,6 +32,7 @@
 \textbf{Rev $\Delta$ Ineq:} $\norm{A-B} \geq \abs{ \norm{A}-\norm{B} }$
 \textbf{Low-Rank:} For $A\in \mathbb{R}^{m\times n} \min \norm{A-B} = \norm{A-A_r}$. Proof via $B := B_1 B_2^T$ with $B_1 \in \mathbb{R}^{m\times r}$; $\exists W s.t. B_2^{T} W = 0$ with null($W$)$\geq n-r$. Then $\exists \: x_V,x_W s.t. V_{r+1}x_V = - W x_W$. So $\norm{A-B} = \norm{AW} \geq \norm{A V_{r+1} x_V} \geq \sigma_{r+1}$ For reverse $B:= A_r$
 \textbf{Courant:} $\sigma_i = \max_{dim(S)=i}\left\{ \min_{x} \norm{Ax}/\norm{x} \right\}$. Proof via $V_i = [v_i \dots v_n]$, so dim($S$)+dim($V_i$) $=n+1$ so $\exists \: w\in S \cap V_i$. Then $\norm{Aw} \leq \sigma_i$. For reverse take $w=v_i$ when $S=[v_1\dots v_i]$
+\textbf{Courant Application:} $\sigma_i\left( [A_1;A_2] \right) \geq \max\left( \sigma_i (A_1), \sigma_i(A_2) \right)$
 \textbf{Schur:} Take $A v_1 = \lambda_1 v_1$; construct $U_1 = [v_1, V_\perp] \rightarrow A U_1 = U_1 [e_1,X]$. Repeat.
 \textbf{Back Subst:} For $Ux=y$ we have $x_{n-i} = \left( y_{n-i} - \sum_{n-i+1}^n u_{n-i,j}x_j \right)/u_{n-i,n-i}; O(i)$ per iteration so $O(n^2)$ total.
 \textbf{Backwards Stable:} When $\hat f(x) = f (x + \Delta x)$ with $\norm{\Delta x}/\norm{x} \leq O(\varepsilon)$
