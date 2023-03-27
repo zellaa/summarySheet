@@ -27,6 +27,15 @@
 \textbf{Givens} $3mn^2$
 \textbf{SVD:} $= \sum_i^{r:= \min{m,n}} u_i \sigma_i v_i^T$.
 \textbf{QR Algo:} $A_{k+1} = Q_k^TA_kQ_k \rightarrow A_{k+1} = \left( Q^{(k)} \right)^T A Q^{(k)} \& A^k = (Q_1 \ldots Q_k) (R_k \ldots R_1) := Q^{(k)}R^{(k)}$, via induction
+\textbf{GMRES:} $\min \norm{AQ_k y -b} \rightarrow \min \norm{H_k y - \norm{b}e_1}$
+\textbf{CG Convergence:} $\norm{e_k} = \min_{p(0)=1} \norm{p_k(A)e_0}= \min_{p_k(A)} \max \abs{p_k(\lambda)} \norm{e_0} \rightarrow \leq 2\left( (\sqrt{k_2} -1) /(\sqrt{k_2} +1)\right)^k$; need $\alpha := 2(\lambda_1 + \lambda_2)$
+\textbf{Cheb:} $T_k(x) = \frac{1}{2} (z^k + z^{-k}); 2xT_k = T_{k+1} + T_{k-1}$
+\textbf{MP:} $\sigma(G) \in [\sqrt{m}- \sqrt{n},\sqrt{m}+\sqrt{n}] \rightarrow k_2 = O(1)$
+\textbf{Sketch:} with $ GA \hat x= Gb$, and via $C-F$ $\norm {G [A,b] [v,-1]^T} \leq (s+\sqrt{n+1}) \norm{R [v,-1]^T}$,
+similar for lower bound via MP 
+$\rightarrow \norm{A \hat x-b}  \leq (\sqrt{s} + \sqrt{n+1})/(\sqrt{s} - \sqrt{n+1}) \norm{Ax-b}$
+\textbf{Blend:} solve $\norm{(A\hat R^{-1}) y-b}=0$ via CG;$k_2(A\hat R^{-1}) = O(1)$ with $GA = \hat Q\hat R$ \textcolor{fg}{PROOF:}
+$A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat R R \rightarrow \tilde R^{-1} = R^{-1} \hat R^{-1} \rightarrow k_2(A \tilde R^{-1}) = k_2(\hat R^{-1}) = O(1)$ by MP. $O(mn)$ to solve via normal
 \textbf{Bounds:} $\norm{ABB^{-1}} \geq \norm{AB} \norm{B^{-1}} \rightarrow \norm{A}/\norm{B^{-1}}\geq \norm{AB}$.
 \textbf{Weyls:} $\sigma_i(A+B) = \sigma_i(A) + [-\norm{B},\norm{B}]$
 \textbf{Rev $\Delta$ Ineq:} $\norm{A-B} \geq \abs{ \norm{A}-\norm{B} }$
@@ -34,5 +43,6 @@
 \textbf{Schur:} Take $A v_1 = \lambda_1 v_1$; construct $U_1 = [v_1, V_\perp] \rightarrow A U_1 = U_1 [e_1,X]$. Repeat.
 \textbf{Conditioning} $\kappa_2(A) = \sigma_1 /\sigma_n = \norm{A}\norm{A^{-1}}$
 \textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
-\\ \textcolor{red}{NPDE:} \textbf{Def'n:} With $u_{tt}-c^2 u_{xx} = f$ have $\Delta x =(b-a)/J, \Delta t = T/M, x_j = a+j \Delta x, t = m \Delta t$. I.C: $U^0_j = u_0(x_j), U_j^1 = U_j^0+ u_1(x_j) \Delta t, U_0^m = U_J^m = 0$
+\\ \textcolor{red}{CO:} 
+\textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian
 \end{document}
