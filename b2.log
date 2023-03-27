@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.23)  27 MAR 2023 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.23)  27 MAR 2023 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -559,31 +559,40 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
 3.
 
-(/usr/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
+(/usr/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./b2.aux) ) 
+LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
+(Font)              using `U/stmry/m/n' instead on input line 50.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./b2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 14964 strings out of 478238
- 288194 string characters out of 5850456
- 574051 words of memory out of 5000000
- 32951 multiletter control sequences out of 15000+600000
- 472178 words of font info for 41 fonts, out of 8000000 for 9000
+ 14983 strings out of 478238
+ 288396 string characters out of 5850456
+ 579051 words of memory out of 5000000
+ 32962 multiletter control sequences out of 15000+600000
+ 474627 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,7n,104p,549b,133s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on b2.pdf (1 page, 133065 bytes).
+ 100i,9n,104p,549b,157s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on b2.pdf (1 page, 147474 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 71 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
