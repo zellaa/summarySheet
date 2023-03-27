@@ -1,0 +1,38 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt,landscape]{article}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,showframe]{geometry}
+\usepackage{xcolor,fancyhdr}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,physics}
+\usepackage{stmaryrd}
+\include{stylefile}
+
+\usepackage{lineno}
+\linenumbers
+\setpagewiselinenumbers
+
+%%%%%%%%%%%%%  PLEASE DO NOT EDIT ANY OF THE LINES ABOVE %%%%%%%%%%%%%%%
+% Insert your text between "\begin{document}" and "\end{document}" below. 
+% The total length of your summary notes should not exceed 2 sides of a
+% single sheet of A4, with maximum 58 lines of text per page.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{fg}{RGB}{34,139,34}
+\begin{document} \noindent
+\textcolor{red}{NLA:}
+\textbf{Golub} \textcolor{fg}{for $k=1:m,n$:} $u_k = (sgn(b_{k,k}) \norm{b_{k:m,k}}e_1 + b_{k:m,k}$); $u_k := \hat u_k$; $U_k := I-2u_k u_k^T$; $B_{k:m,k:n} := U_k B_{k:m,k:n}; U = [I_{k-1,k-1},0;0,U_k];$\textcolor{blue}{for $j=1:m,n-1$:} $v_k^T := sgn(b_{k,k+1}) \norm{b_{k,k+1:n}} e_1+ b_{k:m,k}$;$V_k := I - 2v_kv_k^T; B_{1:m,k+1:n} = B_{1:m,k+1:n} V_k$; $V = [I_{k,k},0;0,V_k]$\textcolor{blue}{endfor} \textcolor{fg}{endfor}; $2 \cdot (2mn^2 - 2 n^3/3)$
+\textbf{Householder} \textcolor{blue}{for $k=[1,n]:$} $x=A_{k:m,k}; v_k = sgn(x) \norm{x}e_k+x;v_k= \frac{v_k}{\norm{v_k}} $ \textcolor{fg}{for $j=[k,n]$} $A_{k:m,j} = A_{k:m,j} - 2v_k\left[ v_k^* A_{k:m,j} \right]$ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $2mn^2 - \frac{2n^3}{3} $. 
+\textbf{MG-S} $V=A;$\textcolor{blue}{for $i=[1,n]:$} $r_{ii}=\norm{v_i}; q_i = \frac{v_i}{r_{ii}}$;\textcolor{fg}{for $j=[i+1,n]$} $ v_j = v_j - ( q_i^T v_j )q_i; r_{ij} = q_i^Tv_j $ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $ 2mn^2$. 
+\textbf{Arnoldi:} $q_1 := \hat b; q_{k+1} h_{k+1,k} = \textcolor{fg}{Aq_k - \sum_{i=1}^k q_i h_{ik}}$; $h_{ik} = q_i^T (A q_k)$; $h_{k+1,k} := \textcolor{fg}{\norm{ v}} \rightarrow AQ_k := Q_k H_k + q_{k+1} [0 \ldots h_{k+1,k}]$.
+\textbf{Givens} $3mn^2$
+\textbf{SVD:} $= \sum_i^{r:= \min{m,n}} u_i \sigma_i v_i^T$.
+\textbf{QR Algo:} $A_{k+1} = Q_k^TA_kQ_k \rightarrow A_{k+1} = \left( Q^{(k)} \right)^T A Q^{(k)} \& A^k = (Q_1 \ldots Q_k) (R_k \ldots R_1) := Q^{(k)}R^{(k)}$, via induction
+\textbf{Bounds:} $\norm{ABB^{-1}} \geq \norm{AB} \norm{B^{-1}} \rightarrow \norm{A}/\norm{B^{-1}}\geq \norm{AB}$.
+\textbf{Weyls:} $\sigma_i(A+B) = \sigma_i(A) + [-\norm{B},\norm{B}]$
+\textbf{Rev $\Delta$ Ineq:} $\norm{A-B} \geq \abs{ \norm{A}-\norm{B} }$
+\textbf{Courant Application:} $\sigma_i\left( [A_1;A_2] \right) \geq \max\left( \sigma_i (A_1), \sigma_i(A_2) \right)$
+\textbf{Schur:} Take $A v_1 = \lambda_1 v_1$; construct $U_1 = [v_1, V_\perp] \rightarrow A U_1 = U_1 [e_1,X]$. Repeat.
+\textbf{Conditioning} $\kappa_2(A) = \sigma_1 /\sigma_n = \norm{A}\norm{A^{-1}}$
+\textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
+\\ \textcolor{red}{NPDE:} \textbf{Def'n:} With $u_{tt}-c^2 u_{xx} = f$ have $\Delta x =(b-a)/J, \Delta t = T/M, x_j = a+j \Delta x, t = m \Delta t$. I.C: $U^0_j = u_0(x_j), U_j^1 = U_j^0+ u_1(x_j) \Delta t, U_0^m = U_J^m = 0$
+\end{document}
