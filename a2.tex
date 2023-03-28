@@ -39,4 +39,14 @@ $S_0 u_t = u_{xx} \; @ \; 0<x<s,(S_0/\kappa) u_t = u_{xx} \; @ \; s<x<1, u=1\;@ 
 \textbf{Welding:} Have $0<s_2<s_1$. Have cold $x=a$, no flux $x=0$. $\theta=1$ in liquid. In mush $\rho L \theta_t = J^2/\sigma$, CoE $\rightarrow \theta \rho L \dot s + k T_x |^{s_+}_{s_-} = 0$. Have $\theta$ cont. $(=0)$ at $s_1$. 
 I.e. we have $S_0 u_t = u_{xx}+q, u_x = 0 \; @ \; x=0, u=-1 \; @ \; x=1, \theta =0 \;@ \; x=s_1$. Also $\theta_t = q$ in mush.
 \\ \textcolor{red}{FMM:} 
+\textbf{Integral Constraint} If $J[y] = \int F dx$ with $\int G dx = C$ then $\tilde J[y] = \int F- \lambda G dx$ 
+\textbf{Hamiltonian:} $H:= y' F_{y'} -F \rightarrow H'=-F_x$. If $F=F(y,\dot y)$ then $H=C$
+\textbf{Hamilton's Eqs:} $p := F_{y'}, q=y$ and so $p'=-H_q, q'=H_p$
+\textbf{Free Boundary:} $J[y,b] = \int_a^b F(x,y,y') dx$ where $b$ free. Expand with $y + \epsilon \eta, b + \epsilon \beta \rightarrow J = J_0 + \epsilon \left\{ \int_a^b \eta F_y + \eta' F_{y'} dx + \beta F(b,y(b),y'(b))  \right\}$
+If $y(b) = d \rightarrow d = y(b+\epsilon \beta) + \epsilon \eta(b + \epsilon \beta)= y(b) + \epsilon(\beta y'(b) + \eta (b))$ so $\eta(b) = - \beta y'(b)$. IVP on integral so $\beta\left[ F- y'F_{y'} \right]_{x=b} + \int\left( \ldots \right)=0$ so \textcolor{fg}{$F= y'F_{y'}$} at free boundary.
+\textbf{Control:} Have $\int \xi h_x + \eta h_u dt =0, \dot \xi = \xi  f_x + \eta f_u$. Sub for $\eta$, IVP s.t. $ \frac{d}{dt} \frac{h_u}{f_u}  = h_x - f_x  \frac{h_u}{f_u}   $ and $\dot x = f$
+\textbf{Hamiltonian (Control):} $H := f \frac{h_u}{f_u} -h$ s.t. $\dot H = \frac{h_u}{f_u} f_t - h_t \rightarrow$ autonomous if $h_t = f_t = 0$.
+\textbf{Fredholm Alt Integ Eqs.} For $y = f+ \int K(x,t)y(t) dt$ we have 
+\textcolor{fg}{ONE} (N) has a unique sol $y=0$ if $f=0$, and adjoint has unique sol, or \textcolor{fg}{TWO} (H) as sols $y_1 \ldots y_r$iff $\forall$ solutions to $H^*$, $z_i$, we have $<f,z_i> = 0$. \textcolor{blue}{EX:} Solve $y=f+\lambda \int \sin(x+t) y(t)dt$. Unique sol iff (H) has trivial sol $\rightarrow X_1 = \int y \cos(t) = \int \cos(t) y_H(t) \rightarrow$ solve $[1, -\lambda \pi; -\lambda \pi, 1] [X_1, X_2]^T = [0,0]^T \rightarrow$ unique sol if $\lambda \neq \pm 1/\pi$. In this case $X_1 = \int \cos(x) y_N(x) =\lambda \pi X_2 + \int f(x) \cos(x)$, and similar for $X_2$. Invert matrix and solve. If non-unique sol, then find sols to (H) first. If $\lambda = 1/\pi$ then $X_1 = X_2 = X$ so $Ly = y- \pi^{-1} \left( \sin (x) +\cos(x) \right) \int \cos(x) y(x) dx$ with sols $y=c_1 \left( \sin(x) + \cos(x) \right)$ by inspection. Problem self adjoint so $Ly = 0 = L^* w$ so need $\int f(x) w(x) =0$ i.e. $\int f(x) (\sin(x) + \cos(x)) = 0$, repeat for $\lambda =-1/\pi$. Then $y = y_p(x) + \sum_i y_{h,i}(x)$
+\textbf{Fred Diff Eq.} For nonunique sol to exist, need $<Ly,w> = <f,w> \forall \; w s.t. L^*w=0$
 \end{document}
