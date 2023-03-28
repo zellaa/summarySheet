@@ -22,6 +22,21 @@
 \textcolor{red}{NS:}
 \textbf{Invariant Set:} $\phi_t(S) \subseteq S$
 \textbf{Lim Pts:} 
-\\ \textcolor{red}{FPDE:} 
+\\ \textcolor{red}{FPDE:}
+\textbf{Types:} $1^{st}: \exists$ scale s.t. solution found, not so for $2^{nd}$.
+\textbf{Heat:} $\hat T = u(\hat T_{\infty} - \hat T_{-\infty}) + \hat T_{-\infty}$
+\textbf{Oil Spread:} Dims: $x = x_f + \varepsilon \xi, t = \tau$
+\textbf{Ground Spread:} $(1-s) \phi h_t + Q_x =0; Q\sim -h h_x, 0<x_s<x_f$. Have $h(x_f)=0, h_t(x_s)=0$, and $h h_x |_{x=0,x_f} = 0$ (i.e. no flux at centre and front), and $h,hh_x$ cont. at joint.
+\textbf{Expansions:} Let $\xi = z + \epsilon \eta$ for perturbations
+\textbf{Scale:} Try $x=x_f + \epsilon \xi$ for groundwater
+\textbf{Stefan:} $S_0 = C\left( T_1-T_m \right)/L$, condition = $\rho L \dot s = k T_x |^{s_+}_{s_-}$
+\textbf{1ph Stefan:} Bar = $T_h | liq |_s sol | INS$. 
+Use $T = T_m + (T_1-T_m)u$ s.t. $S_0 u_t = u_{xx}, u=1\;@ \; x=0,\left\{\dot s = -u_x,u=0\right\} @ \;x=s, s(0)=0$. Sim. sol is $s= \beta \sqrt{t}, f=f(x/\sqrt{t})$
+\textbf{2ph Stefan:}
+Use $T = T_m + (T_1-T_m)u$ s.t.
+$S_0 u_t = u_{xx} \; @ \; 0<x<s,(S_0/\kappa) u_t = u_{xx} \; @ \; s<x<1, u=1\;@ \; x=0,u_x=0 \;@ \; x=1,\left\{\dot s =Ku_x|_{s_+} -u_x|_{s_-},u=0\right\} @ \;x=s, \left\{s=0, u=-\theta\right\} \; @ \; x=0$. Here $\theta := (T_m-T_0)/(T_1-T_m), \kappa := c_1k_1/(c_2k_2), K:= k_2/k_1$ Sim. sol is $s= \beta \sqrt{t}, f=f(x/\sqrt{t})$
+\textbf{2-Dim:} $ U_n = \hat n \cdot u = K(u_2)_n - (u_1)_n$. If $x=f(y,t)$ then $\hat n := \grad (x-f) = [1,-f_y]^T/\sqrt{1+f_y^2}$
+\textbf{Welding:} Have $0<s_2<s_1$. Have cold $x=a$, no flux $x=0$. $\theta=1$ in liquid. In mush $\rho L \theta_t = J^2/\sigma$, CoE $\rightarrow \theta \rho L \dot s + k T_x |^{s_+}_{s_-} = 0$. Have $\theta$ cont. $(=0)$ at $s_1$. 
+I.e. we have $S_0 u_t = u_{xx}+q, u_x = 0 \; @ \; x=0, u=-1 \; @ \; x=1, \theta =0 \;@ \; x=s_1$. Also $\theta_t = q$ in mush.
 \\ \textcolor{red}{FMM:} 
 \end{document}
