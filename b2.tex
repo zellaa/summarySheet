@@ -16,7 +16,7 @@
 % The total length of your summary notes should not exceed 2 sides of a
 % single sheet of A4, with maximum 58 lines of text per page.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\DeclareMathOperator*{\argmin}{arg\,min}
 \definecolor{fg}{RGB}{34,139,34}
 \begin{document} \noindent
 \textcolor{red}{NLA:}
@@ -49,4 +49,19 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{BFGS:} To show $H_{k+1} \geq 0$ nec. $\gamma^T \delta > 0$. Suff via $\gamma, \delta$ LI $\rightarrow $ use $\norm{\cdot}_H \rightarrow \gamma^T \delta > 0$.
 \textbf{Pen. Meth} With $y = -c/\sigma, \norm{\grad_\sigma \Phi} \leq \epsilon^k, \sigma^k \rightarrow 0,x\rightarrow x_*, \grad c(x_*)$ LI, then $y \rightarrow y_*$, $x\rightarrow KKT$. \textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_k \grad f_k - I y_*} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. Also, $\grad f_* - J^T_* y_* = 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
 \textbf{Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 f, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
+\textbf{Trust Region Radius:} $\rho_k := (f(x_k) - f(x_k+ s_k))/(f(x_k) - m_k(s_k))$
+\textbf{TR-Method:} If $\rho \approx 1$ then double radius, update step $x_{k+1} = x_k + s_k$. If $\rho \geq 0.1$ then same radius, update step. If $\rho$ small shrink radius, don't update step.
+\textbf{Cauchy:} Want $m_k(s_k) \leq m_k(s_{kc})$, where \textcolor{fg}{$s_{kc} := - \alpha_{kc} \grad f(x_k)$}, and \textcolor{fg}{$\alpha_{kc}:= \argmin m_k\left( \alpha \grad f(x_k) \right)$} subject to $\norm{\alpha \grad f} \leq \Delta$, i.e. $\alpha_{max} := \Delta/\norm{ \grad f}$.
+\textbf{Calculation of Cauchy:}
+We want to prove cauchy model decrease i.e. \textcolor{fg}{$ f(x_k) - m_k(s_k) \geq f(x_k) - m_k (s_{kc}) \geq 0.5 \norm{\grad f_k} \min\left\{ \Delta_k, \frac{\norm{\grad f_k}}{\norm{\grad ^2 f_k}}  \right\}$}.
+First define $\Psi (\alpha) := m_k(- \alpha\grad f )$ s.t. $\Psi := f_k - \alpha \norm {f_k}^2 - 0.5 \alpha^2 H_k$, with $H_k := \left[ \grad f_k \right]^T \left[ \grad^2 f_k \right] \left[ \grad f_k \right]$. 
+N.B. that \textcolor{blue}{$\alpha_{min}:= \frac{\norm{\grad f_k}^2}{H_k} $} if $H_k  >0$, from $\Psi'(0) <0$.
+Now \textcolor{blue}{A: If $H_k \leq 0$} 
+then we have $\Psi (\alpha) \leq f_k - \alpha \norm{\grad f_k}^2 \rightarrow \alpha_{kc} = \alpha_{max}$. So, we have $f_k - m_{s_k} \geq f_k - m_{s_{kc}} \geq \norm{\grad f_k} \Delta_k \geq 0.5 \norm{\grad f_k} \min \left\{ \Delta_k \right\}$.
+Now \textcolor{blue}{B.i: If $H_k > 0 \rightarrow \alpha_{kc} =\alpha_{min}$}. 
+Here $f_k - m_{s_{kc}} = \alpha_{kc} \norm{\grad f}^2 - 0.5 \alpha_{kc}^2 H_k = \frac{\norm{\grad f}^4}{2 H_k} \geq \frac{\norm{\grad f}}{2} \min\left\{ \frac{\norm{\grad f}}{\norm{\grad^2 f}}  \right\}$ via C-S.
+Now \textcolor{blue}{B.ii: If $H_k > 0 \rightarrow \alpha_{kc} =\alpha_{max}$}. 
+Here $\Delta / \norm{\grad f} \leq \norm{ \grad f}^2 /H_k \rightarrow \alpha_{kc} H_k \leq \norm{\grad f}^2$. So $f_k - m_{kc} = -\alpha_{kc} \norm{\grad f}^2 + \frac{\alpha_{kc}^2}{2} H_k \geq \frac{\norm{\grad f}^2}{2} \alpha_{kc} \geq 0.5 \norm{\grad f} \min\left\{ \Delta_k \right\}$
+\textbf{TR-Global Convergence:} If $m_k(s_k) \leq m_k (s_{kc})$ then either $\exists k \geq 0$ s.t. $\grad f_k =0$ or $\lim \norm{\grad f} \rightarrow 0$
+sd
 \end{document}
