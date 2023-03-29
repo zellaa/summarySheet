@@ -20,8 +20,28 @@
 \definecolor{fg}{RGB}{34,139,34}
 \begin{document} \noindent
 \textcolor{red}{NS:}
+\textbf{Classifications:} 
+\textcolor{fg}{Node:} $\lambda_i \in \mathbb{R},\Pi \lambda_i > 0$ 
+\textcolor{fg}{Centre:} $\lambda_i = \pm i b$
+\textcolor{fg}{Focus:} $\lambda_i = a\pm i b$
+\textcolor{fg}{Hyperbolic:} Re($\lambda$) $\neq0 \rightarrow$ hyperbolic. \textcolor{blue}{If all $\lambda <0$ for Spec($Df(x_0)$) then A-Stable}
 \textbf{Invariant Set:} $\phi_t(S) \subseteq S$
-\textbf{Lim Pts:} 
+\textbf{Lim Pts:} $\omega$ pt. if $\lim_{t\rightarrow \infty } \phi(x) = p$, i.e. flows \textit{tend to} $p$. $\alpha$ pt. if $\lim_{t\rightarrow -\infty } \phi(x) = p$.
+\textbf{Attracting Set:} A set $A \subseteq S$ if $\exists$ neighbourhood $U$ s.t. $\phi(U) \subseteq U \forall t \geq 0$, and $A = \cap_{t>0} \phi(U)$
+\textbf{Dense Orbits:} If $\forall \; \epsilon > 0, x \in A$ with $A$ an attracting set, $\exists \tilde x \in \Gamma s.t. |x -\tilde x| < \epsilon$. I.e. a dense orbit goes as close as needed to \textit{any} point within $A$
+\textbf{Attractor:} An attracting set with a dense orbit.
+\textbf{Lyapunov Stable:} If $\forall \epsilon > 0, \exists \; \delta > 0 s.t. \forall \; x \in B_\delta, t \geq 0, \phi(t) \in B_\delta$ (i.e. points stay close within region).
+\textbf{Asymptotically Stable:} If L-Stable and $\exists \; \delta > 0 s.t. \phi(x) \rightarrow x_0 \forall x \in B_\delta$
+\textbf{Lyapunov F'n:} $V(x_0)=0, V(x) > 0 \forall \; x \neq x_0$. 
+Then if $\dot V < 0 \rightarrow$ A-Stable, or if $\dot V \leq 0$ L-Stable.
+\textbf{Stable Manifold:} If spectrum of $Df(x_0)$ has $k$ eigvals with positive real parts, and $n-k$ with negative, then $\exists$ an $n-k$ dim manifold tangent to $E^s$ s.t. for all $t>0$ $\phi(W^s_{loc}) \subseteq W^s_{loc}$, and $\forall x \in W^s_{loc} \phi(x) \rightarrow x_0$ as time increases. Repeat for $k$-dim unstable manifold but for negative time. Then, define e.g. global stable manifold by $W^s(x_0) := \cup_{t\leq 0}\phi_t\left( W^s_{loc} \right)$. \textcolor{fg}{Note that we search backwards in time for stable, and forwards for unstable!}
+\textbf{Centre Manifold:} If $x_0$ not hyperbolic ($0$ real part), then $E^c$ is the centre subspace. Then $\exists W^c$ parallel to $E^c$, of class $C^r$, and invariant under flow. Want bifurcation at $\mu=0$, so with change of variables first find eigvecs $v_1,v_2$. Then, construct $P:= [v_1, v_2]$ s.t. $\va*{x} = P \va*{\xi}$. Solve for $\va*{\xi}$ and then expand with $\eta  = h(\xi, \tilde \mu)$
+\textbf{Transcritical Bifurcation:} Always two points, change type at origin. E.g. $\dot x  =  \mu x - x^2$
+\textbf{Saddle-Node:} E.g. $\dot x = \mu -x^2$ Bifurcation begins to exist at origin.
+\textbf{Supercritical:} E.g. $\dot x = \mu x - x^3$, where stable$\rightarrow 2\times $ stable and one unstable. 
+\textbf{Subcritical:} E.g. $\dot x = -\mu x + x^3$, where unstable$\rightarrow 2\times $ unstable and one stable. 
+\textbf{General co-dim 1:} If $\dot x = f$ then $\dot x = \mu f_u + 0.5 x^2 f_{xx} + x\mu f_{x \mu} + 0.5 \mu^2 f_{\mu \mu}$. Generally this is a saddle-node but if $f_u = 0 $ we have $\dot x = x\mu f_{x\mu}+ 0.5 x^2 f_{xx}$, which is a transcritical. However if $x = -x$ then $\dot x = x(\mu f_{x \mu } + \ldots) + x^3 (f_{xxx}/6 + \ldots) \rightarrow $ pitchfork. \textcolor{fg}{Saddle-node stable under perturbations!}
+\textbf{HomoClinic Orbits} Sum of roots of cubic = - coeff. of $x^2$
 \\ \textcolor{red}{FPDE:}
 \textbf{Types:} $1^{st}: \exists$ scale s.t. solution found, not so for $2^{nd}$.
 \textbf{Heat:} $\hat T = u(\hat T_{\infty} - \hat T_{-\infty}) + \hat T_{-\infty}$
