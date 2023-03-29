@@ -44,11 +44,12 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{Conditioning} $\kappa_2(A) = \sigma_1 /\sigma_n = \norm{A}\norm{A^{-1}}$
 \textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
 \\ \textcolor{red}{CO:} 
+\textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $
 \textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian
 \textbf{bArm:} w/ $\phi(\alpha) = f(x_k + \alpha_k s_k), \psi(\alpha) = \phi(\alpha) - \phi (0)- \beta \alpha \phi'(0) \leq 0$, show $\psi'(0) = (1-\beta) \phi'(0) \leq 0 \rightarrow \psi(\alpha) \downarrow$ with $\alpha$.
 \textbf{BFGS:} To show $H_{k+1} \geq 0$ nec. $\gamma^T \delta > 0$. Suff via $\gamma, \delta$ LI $\rightarrow $ use $\norm{\cdot}_H \rightarrow \gamma^T \delta > 0$.
-\textbf{Pen. Meth} With $y = -c/\sigma, \norm{\grad_\sigma \Phi} \leq \epsilon^k, \sigma^k \rightarrow 0,x\rightarrow x_*, \grad c(x_*)$ LI, then $y \rightarrow y_*$, $x\rightarrow KKT$. \textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_k \grad f_k - I y_*} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. Also, $\grad f_* - J^T_* y_* = 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
-\textbf{Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 f, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
+\textbf{Quad Penalty Meth} With $y = -c/\sigma, \norm{\grad_\sigma \Phi} \leq \epsilon^k, \sigma^k \rightarrow 0,x\rightarrow x_*, \grad c(x_*)$ LI, then $y \rightarrow y_*$, $x\rightarrow KKT$. \textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_k \grad f_k - I y_*} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. Also, $\grad f_* - J^T_* y_* = 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
+\textbf{Quad Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 f, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
 \textbf{Trust Region Radius:} $\rho_k := (f(x_k) - f(x_k+ s_k))/(f(x_k) - m_k(s_k))$
 \textbf{TR-Method:} If $\rho \approx 1$ then double radius, update step $x_{k+1} = x_k + s_k$. If $\rho \geq 0.1$ then same radius, update step. If $\rho$ small shrink radius, don't update step.
 \textbf{Cauchy:} Want $m_k(s_k) \leq m_k(s_{kc})$, where \textcolor{fg}{$s_{kc} := - \alpha_{kc} \grad f(x_k)$}, and \textcolor{fg}{$\alpha_{kc}:= \argmin m_k\left( \alpha \grad f(x_k) \right)$} subject to $\norm{\alpha \grad f} \leq \Delta$, i.e. $\alpha_{max} := \Delta/\norm{ \grad f}$.
@@ -64,9 +65,21 @@ Now \textcolor{blue}{B.ii: If $H_k > 0 \rightarrow \alpha_{kc} =\alpha_{max}$}.
 Here $\Delta / \norm{\grad f} \leq \norm{ \grad f}^2 /H_k \rightarrow \alpha_{kc} H_k \leq \norm{\grad f}^2$. So $f_k - m_{kc} = -\alpha_{kc} \norm{\grad f}^2 + \frac{\alpha_{kc}^2}{2} H_k \geq \frac{\norm{\grad f}^2}{2} \alpha_{kc} \geq 0.5 \norm{\grad f} \min\left\{ \Delta_k \right\}$
 \textbf{TR-Global Convergence:} If $m_k(s_k) \leq m_k (s_{kc})$ then either $\exists k \geq 0$ s.t. $\grad f_k =0$ or $\lim \norm{\grad f} \rightarrow 0$. Further, require $f \in C^2$, bounded below and also $\grad f$ L-cont. 
 \textcolor{blue}{PROOF:} Using def of $\rho$, $f_k - f_{k+1} \geq \frac{0.1}{2} \norm{\grad f_k} \min\left\{ \ldots \right\}$ from above. Let $\norm{ \grad ^2 f} := L$, and assuming $\norm{\grad f} \geq \epsilon$ we have $f_k - f_{k+1} \geq 0.05 \frac{c}{L} \epsilon^2$ assuming TR has a lower bound $c\epsilon/L$. Then sum over all successful jumps s.t. $f_0 - f_{lower} \geq \sum_{i\in \mathbb{S}} f_i - f_{i+1} \geq \abs{\mathbb{S}} \frac{0.05c\epsilon^2}{L} $
-\textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $
+\textbf{KKT Feasibility:} Need $s^T J \geq 0$, $J_E^Ts =0$, and $s^T \grad f <0$.
+\textbf{KKT Conditions:} \textcolor{fg}{REMEMBER $c \geq 0$, $\lambda \geq 0$!}
+\textbf{First Order KKT (Equality):} If we have $x_*$ local min, then let $x = x_* + \alpha s$. Then we have $c_i(x(\alpha)) \rightarrow 0 = c_i(x_*) + \alpha s^T J \rightarrow s^T J=0$. Further, we have $f(x) = f(x_*) + \alpha s^T \grad f \rightarrow \alpha s^T \grad f \geq 0$. Repeat for negative $\alpha$ s.t. $s^T \grad f =0$. By Rank-Nullity (assuming $J_E(x_*)$ full rank), we have $\grad f_* = J^T_* y + s_*$ for some $y_*$, which then implies (after $s^T$ from LHS) that $\norm{s_*}=0$, so $\grad f_* = J^T_* y_*$.
 \textbf{KKT 2nd Order} If we have $\min f$ with $c(x) \geq 0$, $2^{nd}$ order conditions are that $s^T \grad ^2 \mathcal{L} s \geq 0$ for all $s \in \mathcal{A}$, with $\mathcal{A}$ defined s.t: \textcolor{fg}{EITHER} 
 $s^T J_i =0 \; \forall \; i$ s.t. $\lambda_i > 0, c_i =0$, 
 \textcolor{fg}{OR} 
 $s^T J_i \geq 0 \; \forall \; i$ s.t. $\lambda_i = 0, c_i =0$, for $J,c,\lambda$ evaluated at $x_*$
+For EQUALITY constraints instead need positive definite $\forall$ $s$ s.t. $J^T s =0$
+\textbf{Convex Problems} $\hat x= KKT \Rightarrow \hat x = \argmin f(x)$. Proof via $f \geq f(\hat x) + \grad f^T(x-\hat x)$ so $f \geq f(\hat x) + \hat y^T A (x-\hat x) + \sum_{i\in I} \lambda_i J^T_i(x-\hat x)$. Choose $Ax=b$, and note that $c_i$ concave s.t. $\lambda_i J^T_i(\hat x) (x-\hat x) \geq \lambda_i (c_i(x) - c_i(\hat x)) = \lambda_i c_i (x) \geq 0 \rightarrow f(x) \geq f(\hat x)$.
+\textbf{Log-Barrier Global Convergence:} With $f\in C^1, \lambda_{ik} = \frac{\mu_k}{c_{ik}}, \norm{\grad f_u (x_k)} \leq \epsilon_k, \mu_k \rightarrow 0, x_k \rightarrow x_*$. Also, $\grad c(x_*) LI \; \forall \; i \in \mathcal{A}$ (active constraints). Then $x_*$ KKT and $\lambda \rightarrow \lambda_*$.
+PROOF:
+Have $J_A^\dagger(x_*) = (J_A(x_*) J_A(x_*)^T)^{-1}J_A(x_*)$. Also, $c_A=0,c_I >0$. So $\lambda = \mu/c \rightarrow 0$ so $\lambda_I =0$ as $c_I>0$. 
+Next $\norm{\grad f_k - J_{Ak}\lambda_{Ak} } \leq \norm{\grad f_k - J^T_k \lambda_k} + \norm{\lambda_I} \norm{\ldots} = \norm{\grad f_{\mu k}}\rightarrow 0$. 
+Now $ \norm{J_A^\dagger \grad f_k - \lambda_{kA}} \leq \norm{J_A^\dagger} \norm{\grad f_k - J_{Ak}^T \lambda_{Ak} }\rightarrow 0$. 
+So with triangle ineq $ \norm{\lambda_{kA}- J_{Ak}^\dagger \grad f_k + J_{Ak}^\dagger \grad f_k - \lambda_{A*}} \rightarrow 0$, via cont. of $\grad f$ and $J^\dagger$. Thus $\lambda_{Ak} \rightarrow \lambda_{A*} \geq 0$. 
+Combine s.t. $\grad f_k - J_{Ak}^T \lambda_{AK}$ with $k \rightarrow *$ so get KKT.
+\textbf{Primal-Dual Newton:}
 \end{document}
