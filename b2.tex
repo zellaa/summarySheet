@@ -62,6 +62,11 @@ Now \textcolor{blue}{B.i: If $H_k > 0 \rightarrow \alpha_{kc} =\alpha_{min}$}.
 Here $f_k - m_{s_{kc}} = \alpha_{kc} \norm{\grad f}^2 - 0.5 \alpha_{kc}^2 H_k = \frac{\norm{\grad f}^4}{2 H_k} \geq \frac{\norm{\grad f}}{2} \min\left\{ \frac{\norm{\grad f}}{\norm{\grad^2 f}}  \right\}$ via C-S.
 Now \textcolor{blue}{B.ii: If $H_k > 0 \rightarrow \alpha_{kc} =\alpha_{max}$}. 
 Here $\Delta / \norm{\grad f} \leq \norm{ \grad f}^2 /H_k \rightarrow \alpha_{kc} H_k \leq \norm{\grad f}^2$. So $f_k - m_{kc} = -\alpha_{kc} \norm{\grad f}^2 + \frac{\alpha_{kc}^2}{2} H_k \geq \frac{\norm{\grad f}^2}{2} \alpha_{kc} \geq 0.5 \norm{\grad f} \min\left\{ \Delta_k \right\}$
-\textbf{TR-Global Convergence:} If $m_k(s_k) \leq m_k (s_{kc})$ then either $\exists k \geq 0$ s.t. $\grad f_k =0$ or $\lim \norm{\grad f} \rightarrow 0$
-sd
+\textbf{TR-Global Convergence:} If $m_k(s_k) \leq m_k (s_{kc})$ then either $\exists k \geq 0$ s.t. $\grad f_k =0$ or $\lim \norm{\grad f} \rightarrow 0$. Further, require $f \in C^2$, bounded below and also $\grad f$ L-cont. 
+\textcolor{blue}{PROOF:} Using def of $\rho$, $f_k - f_{k+1} \geq \frac{0.1}{2} \norm{\grad f_k} \min\left\{ \ldots \right\}$ from above. Let $\norm{ \grad ^2 f} := L$, and assuming $\norm{\grad f} \geq \epsilon$ we have $f_k - f_{k+1} \geq 0.05 \frac{c}{L} \epsilon^2$ assuming TR has a lower bound $c\epsilon/L$. Then sum over all successful jumps s.t. $f_0 - f_{lower} \geq \sum_{i\in \mathbb{S}} f_i - f_{i+1} \geq \abs{\mathbb{S}} \frac{0.05c\epsilon^2}{L} $
+\textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $
+\textbf{KKT 2nd Order} If we have $\min f$ with $c(x) \geq 0$, $2^{nd}$ order conditions are that $s^T \grad ^2 \mathcal{L} s \geq 0$ for all $s \in \mathcal{A}$, with $\mathcal{A}$ defined s.t: \textcolor{fg}{EITHER} 
+$s^T J_i =0 \; \forall \; i$ s.t. $\lambda_i > 0, c_i =0$, 
+\textcolor{fg}{OR} 
+$s^T J_i \geq 0 \; \forall \; i$ s.t. $\lambda_i = 0, c_i =0$, for $J,c,\lambda$ evaluated at $x_*$
 \end{document}
