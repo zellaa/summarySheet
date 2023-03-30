@@ -27,10 +27,13 @@
 \textbf{Givens} $3mn^2$
 \textbf{SVD:} $= \sum_i^{r:= \min{m,n}} u_i \sigma_i v_i^T$.
 \textbf{QR Algo:} $A_{k+1} = Q_k^TA_kQ_k \rightarrow A_{k+1} = \left( Q^{(k)} \right)^T A Q^{(k)} \& A^k = (Q_1 \ldots Q_k) (R_k \ldots R_1) := Q^{(k)}R^{(k)}$, via induction
-\textbf{GMRES:} $\min \norm{AQ_k y -b} \rightarrow \min \norm{H_k y - \norm{b}e_1}$
+\textbf{Krylov:} Usually want $x_k-x_0 \in \mathcal{K}_k$
+\textbf{GMRES:} $\min \norm{AQ_k y -b} \rightarrow \min \norm{H_k y - \norm{b}e_1}$. Bound $\norm{r_k} = \norm{ M p(\Lambda) M^{-1} r_0}$
 \textbf{CG Bound:} With $c = x-x_0, c_k = x_k-x_0$ s.t. $r_k=A(c-c_k)$ we have $r_k^T v=0 \; \forall \; v \in \mathcal{K}_k$ so $v^tA(c-c_k)=0$, s.t. $y=c_k = \argmin \norm{c-y}_A$. WTS $e_k = e_0 p_k(A)$ with $p(0)=1$, and write $e_0 := \sum \gamma_i v_i$ with $Av_i = \lambda_i v_i \rightarrow \norm{e_k}_A = \min_{p_k,p(0)=1}\max \abs{p(\lambda_i} \norm{e_0}_A$
 \textbf{CG Convergence:} $\norm{e_k} = \min_{p(0)=1} \norm{p_k(A)e_0}= \min_{p_k(A)} \max \abs{p_k(\lambda)} \norm{e_0} \rightarrow \leq 2\left( (\sqrt{k_2} -1) /(\sqrt{k_2} +1)\right)^k$; need $\alpha := 2(\lambda_1 + \lambda_2)$
 \textbf{Cheb:} $T_k(x) = \frac{1}{2} (z^k + z^{-k}); 2xT_k = T_{k+1} + T_{k-1}$
+\textbf{Cheb Shift:} Choose $p(x) = T_k(\left[ 2x-b-a \right]/\left[ b-a \right])/T_k\left( \left[ -b-a \right]/\left[ b-a \right] \right)$ s.t. $p(0)=1$.
+Then $p \leq 1/ \abs{T_k\left( \left[ -b-a \right]/\left[ b-a \right] \right)} \leq 2\left( [\sqrt{\kappa}-1]/[\sqrt{\kappa} +1] \right)^k$
 \textbf{CG Conditions:} To show $r_{k+1}^Tr_k = 0$ first show $p_k^TAp_k = p_k^TA r_k$ via $\beta$ then show $p_k ^T r_k = r_k^T r_k$ via $p_{k-1}^Tr_k=0$.
 \textbf{MP:} $\sigma(G) \in [\sqrt{m}- \sqrt{n},\sqrt{m}+\sqrt{n}] \rightarrow k_2 = O(1)$
 \textbf{Sketch:} with $ GA \hat x= Gb$, and via $C-F$ $\norm {G [A,b] [v,-1]^T} \leq (s+\sqrt{n+1}) \norm{R [v,-1]^T}$,
@@ -50,7 +53,7 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian
 \textbf{bArm:} w/ $\phi(\alpha) = f(x_k + \alpha_k s_k), \psi(\alpha) = \phi(\alpha) - \phi (0)- \beta \alpha \phi'(0) \leq 0$, show $\psi'(0) = (1-\beta) \phi'(0) \leq 0 \rightarrow \psi(\alpha) \downarrow$ with $\alpha$.
 \textbf{BFGS:} To show $H_{k+1} \geq 0$ nec. $\gamma^T \delta > 0$. Suff via $\gamma, \delta$ LI $\rightarrow $ use $\norm{\cdot}_H \rightarrow \gamma^T \delta > 0$.
-\textbf{Quad Penalty Meth} With $y = -c/\sigma, \norm{\grad_\sigma \Phi} \leq \epsilon^k, \sigma^k \rightarrow 0,x\rightarrow x_*, \grad c(x_*)$ LI, then $y \rightarrow y_*$, $x\rightarrow KKT$. \textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_k \grad f_k - I y_*} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. Also, $\grad f_* - J^T_* y_* = 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
+\textbf{Quad Penalty Meth} With $y = -c/\sigma, \norm{\grad_\sigma \Phi} \leq \epsilon^k, \sigma^k \rightarrow 0,x\rightarrow x_*, \grad c(x_*)$ LI, then $y \rightarrow y_*$, $x\rightarrow KKT$, if $f,c \in C^1$. \textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_k \grad f_k - I y_*} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. Also, $\grad f_* - J^T_* y_* = 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
 \textbf{Quad Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 f, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
 \textbf{Trust Region Radius:} $\rho_k := (f(x_k) - f(x_k+ s_k))/(f(x_k) - m_k(s_k))$
 \textbf{TR-Method:} If $\rho \approx 1$ then double radius, update step $x_{k+1} = x_k + s_k$. If $\rho \geq 0.1$ then same radius, update step. If $\rho$ small shrink radius, don't update step.
@@ -84,4 +87,7 @@ Now $ \norm{J_A^\dagger \grad f_k - \lambda_{kA}} \leq \norm{J_A^\dagger} \norm{
 So with triangle ineq $ \norm{\lambda_{kA}- J_{Ak}^\dagger \grad f_k + J_{Ak}^\dagger \grad f_k - \lambda_{A*}} \rightarrow 0$, via cont. of $\grad f$ and $J^\dagger$. Thus $\lambda_{Ak} \rightarrow \lambda_{A*} \geq 0$. 
 Combine s.t. $\grad f_k - J_{Ak}^T \lambda_{AK}$ with $k \rightarrow *$ so get KKT.
 \textbf{Primal-Dual Newton:} Have $\grad f = J^T \lambda, C(x) \lambda = \mu e$ so $[\grad ^2 \mathcal{L}, -J^T;\Lambda J, C] [dx, d\lambda]^T = - [\grad f -J^T \lambda, C\lambda -\mu e]^T$ 
+\textbf{Augmented Lagrangian:} Same result as QUAD PEN METH but $x\rightarrow x_*$ if $\sigma \rightarrow 0$ for bounded $u_k$ or $u_k$ to $y_*$ for bounded $\sigma_k$. Proof via $\norm{c_k} =\leq \sigma_k \norm{y_k - y_*} + \sigma_k \norm{u_k - y_*}$. If $u_k$ bounded then $\rightarrow 0$ as $y_k \rightarrow y_*$, else trivially if $u_k \rightarrow y_*$ then to $0$.
+\textbf{GLM Global Convergence:} With $f\in C^1, \grad f$ L-Cont, and $f$ bdd below, then $\grad f_l = 0$ or $\lim \min \left\{ \frac{\abs{\grad f^T s }}{ \norm{s}},\abs{s^T \grad f}  \right\}$ to $0$. In non-trivial case, via bArmijo, $f_k - f_{k+1} \geq - \beta \alpha_k  s_k^T \grad f_k  = \beta \alpha_k \abs{ s^T_k \grad f_k}$. Sum s.t. $f_0 - f_{k+1} \geq \beta \sum \alpha_k \abs{ s^T_k \grad f_k}$, so term in sum to $0$. For all $k$ successful we then have $\alpha_k \abs{s^T_k \grad f_k} \geq \frac{(1-\beta)\tau }{L } \left( \frac{\abs{s^T_k \grad f_k}}{ \norm{s_k} }  \right)^2 \geq 0$ so squared term to $0$. For unsuccesful steps $\alpha_k \geq \alpha_0$ so no norm term.
+
 \end{document}
