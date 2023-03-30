@@ -28,8 +28,10 @@
 \textbf{SVD:} $= \sum_i^{r:= \min{m,n}} u_i \sigma_i v_i^T$.
 \textbf{QR Algo:} $A_{k+1} = Q_k^TA_kQ_k \rightarrow A_{k+1} = \left( Q^{(k)} \right)^T A Q^{(k)} \& A^k = (Q_1 \ldots Q_k) (R_k \ldots R_1) := Q^{(k)}R^{(k)}$, via induction
 \textbf{GMRES:} $\min \norm{AQ_k y -b} \rightarrow \min \norm{H_k y - \norm{b}e_1}$
+\textbf{CG Bound:} With $c = x-x_0, c_k = x_k-x_0$ s.t. $r_k=A(c-c_k)$ we have $r_k^T v=0 \; \forall \; v \in \mathcal{K}_k$ so $v^tA(c-c_k)=0$, s.t. $y=c_k = \argmin \norm{c-y}_A$. WTS $e_k = e_0 p_k(A)$ with $p(0)=1$, and write $e_0 := \sum \gamma_i v_i$ with $Av_i = \lambda_i v_i \rightarrow \norm{e_k}_A = \min_{p_k,p(0)=1}\max \abs{p(\lambda_i} \norm{e_0}_A$
 \textbf{CG Convergence:} $\norm{e_k} = \min_{p(0)=1} \norm{p_k(A)e_0}= \min_{p_k(A)} \max \abs{p_k(\lambda)} \norm{e_0} \rightarrow \leq 2\left( (\sqrt{k_2} -1) /(\sqrt{k_2} +1)\right)^k$; need $\alpha := 2(\lambda_1 + \lambda_2)$
 \textbf{Cheb:} $T_k(x) = \frac{1}{2} (z^k + z^{-k}); 2xT_k = T_{k+1} + T_{k-1}$
+\textbf{CG Conditions:} To show $r_{k+1}^Tr_k = 0$ first show $p_k^TAp_k = p_k^TA r_k$ via $\beta$ then show $p_k ^T r_k = r_k^T r_k$ via $p_{k-1}^Tr_k=0$.
 \textbf{MP:} $\sigma(G) \in [\sqrt{m}- \sqrt{n},\sqrt{m}+\sqrt{n}] \rightarrow k_2 = O(1)$
 \textbf{Sketch:} with $ GA \hat x= Gb$, and via $C-F$ $\norm {G [A,b] [v,-1]^T} \leq (s+\sqrt{n+1}) \norm{R [v,-1]^T}$,
 similar for lower bound via MP 
@@ -44,7 +46,7 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{Conditioning} $\kappa_2(A) = \sigma_1 /\sigma_n = \norm{A}\norm{A^{-1}}$
 \textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
 \\ \textcolor{red}{CO:} 
-\textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $
+\textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $, with $J:=$ Jacobian of $r(x)$
 \textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian
 \textbf{bArm:} w/ $\phi(\alpha) = f(x_k + \alpha_k s_k), \psi(\alpha) = \phi(\alpha) - \phi (0)- \beta \alpha \phi'(0) \leq 0$, show $\psi'(0) = (1-\beta) \phi'(0) \leq 0 \rightarrow \psi(\alpha) \downarrow$ with $\alpha$.
 \textbf{BFGS:} To show $H_{k+1} \geq 0$ nec. $\gamma^T \delta > 0$. Suff via $\gamma, \delta$ LI $\rightarrow $ use $\norm{\cdot}_H \rightarrow \gamma^T \delta > 0$.
@@ -52,7 +54,7 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{Quad Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 f, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
 \textbf{Trust Region Radius:} $\rho_k := (f(x_k) - f(x_k+ s_k))/(f(x_k) - m_k(s_k))$
 \textbf{TR-Method:} If $\rho \approx 1$ then double radius, update step $x_{k+1} = x_k + s_k$. If $\rho \geq 0.1$ then same radius, update step. If $\rho$ small shrink radius, don't update step.
-\textbf{Cauchy:} Want $m_k(s_k) \leq m_k(s_{kc})$, where \textcolor{fg}{$s_{kc} := - \alpha_{kc} \grad f(x_k)$}, and \textcolor{fg}{$\alpha_{kc}:= \argmin m_k\left( \alpha \grad f(x_k) \right)$} subject to $\norm{\alpha \grad f} \leq \Delta$, i.e. $\alpha_{max} := \Delta/\norm{ \grad f}$.
+\textbf{Cauchy:} \textcolor{blue}{Is the point on gradient which minimises the quadratic model within TR}. Want $m_k(s_k) \leq m_k(s_{kc})$, where \textcolor{fg}{$s_{kc} := - \alpha_{kc} \grad f(x_k)$}, and \textcolor{fg}{$\alpha_{kc}:= \argmin m_k\left( \alpha \grad f(x_k) \right)$} subject to $\norm{\alpha \grad f} \leq \Delta$, i.e. $\alpha_{max} := \Delta/\norm{ \grad f}$.
 \textbf{Calculation of Cauchy:}
 We want to prove cauchy model decrease i.e. \textcolor{fg}{$ f(x_k) - m_k(s_k) \geq f(x_k) - m_k (s_{kc}) \geq 0.5 \norm{\grad f_k} \min\left\{ \Delta_k, \frac{\norm{\grad f_k}}{\norm{\grad ^2 f_k}}  \right\}$}.
 First define $\Psi (\alpha) := m_k(- \alpha\grad f )$ s.t. $\Psi := f_k - \alpha \norm {f_k}^2 - 0.5 \alpha^2 H_k$, with $H_k := \left[ \grad f_k \right]^T \left[ \grad^2 f_k \right] \left[ \grad f_k \right]$. 
@@ -81,5 +83,5 @@ Next $\norm{\grad f_k - J_{Ak}\lambda_{Ak} } \leq \norm{\grad f_k - J^T_k \lambd
 Now $ \norm{J_A^\dagger \grad f_k - \lambda_{kA}} \leq \norm{J_A^\dagger} \norm{\grad f_k - J_{Ak}^T \lambda_{Ak} }\rightarrow 0$. 
 So with triangle ineq $ \norm{\lambda_{kA}- J_{Ak}^\dagger \grad f_k + J_{Ak}^\dagger \grad f_k - \lambda_{A*}} \rightarrow 0$, via cont. of $\grad f$ and $J^\dagger$. Thus $\lambda_{Ak} \rightarrow \lambda_{A*} \geq 0$. 
 Combine s.t. $\grad f_k - J_{Ak}^T \lambda_{AK}$ with $k \rightarrow *$ so get KKT.
-\textbf{Primal-Dual Newton:}
+\textbf{Primal-Dual Newton:} Have $\grad f = J^T \lambda, C(x) \lambda = \mu e$ so $[\grad ^2 \mathcal{L}, -J^T;\Lambda J, C] [dx, d\lambda]^T = - [\grad f -J^T \lambda, C\lambda -\mu e]^T$ 
 \end{document}
