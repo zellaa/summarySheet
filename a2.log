@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.23)  29 MAR 2023 13:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.23)  31 MAR 2023 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -544,25 +544,25 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
-4.
+3.
 
 (/usr/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 38.
+(Font)              using `U/stmry/m/n' instead on input line 41.
 
 [1
 
@@ -574,7 +574,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  14985 strings out of 478238
  288417 string characters out of 5850456
- 591051 words of memory out of 5000000
+ 597051 words of memory out of 5000000
  32963 multiletter control sequences out of 15000+600000
  474973 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -593,7 +593,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on a2.pdf (1 page, 192281 bytes).
+Output written on a2.pdf (1 page, 195179 bytes).
 PDF statistics:
  91 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream

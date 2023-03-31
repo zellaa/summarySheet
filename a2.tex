@@ -20,6 +20,8 @@
 \definecolor{fg}{RGB}{34,139,34}
 \begin{document} \noindent
 \textcolor{red}{NS:}
+\textbf{Inverse $2 \times 2$:} For $A:=[a,b;c,d], A^{-1} := \frac{1}{ad-bc} [d,-b;-c,a]$  
+\textbf{Radial:} $r \dot r = x \dot x + y \dot y$, $\dot \theta  =  \left[ \tan ^{-1}\left( y/x \right) \right]' = \frac{x \dot y - \dot x y}{x^2 + y^2} $
 \textbf{Classifications:} 
 \textcolor{fg}{Node:} $\lambda_i \in \mathbb{R},\Pi \lambda_i > 0$ 
 \textcolor{fg}{Centre:} $\lambda_i = \pm i b$
@@ -35,7 +37,12 @@
 \textbf{Lyapunov F'n:} $V(x_0)=0, V(x) > 0 \forall \; x \neq x_0$. 
 Then if $\dot V < 0 \rightarrow$ A-Stable, or if $\dot V \leq 0$ L-Stable.
 \textbf{Stable Manifold:} If spectrum of $Df(x_0)$ has $k$ eigvals with positive real parts, and $n-k$ with negative, then $\exists$ an $n-k$ dim manifold tangent to $E^s$ s.t. for all $t>0$ $\phi(W^s_{loc}) \subseteq W^s_{loc}$, and $\forall x \in W^s_{loc} \phi(x) \rightarrow x_0$ as time increases. Repeat for $k$-dim unstable manifold but for negative time. Then, define e.g. global stable manifold by $W^s(x_0) := \cup_{t\leq 0}\phi_t\left( W^s_{loc} \right)$. \textcolor{fg}{Note that we search backwards in time for stable, and forwards for unstable!}
-\textbf{Centre Manifold:} If $x_0$ not hyperbolic ($0$ real part), then $E^c$ is the centre subspace. Then $\exists W^c$ parallel to $E^c$, of class $C^r$, and invariant under flow. Want bifurcation at $\mu=0$, so with change of variables first find eigvecs $v_1,v_2$. Then, construct $P:= [v_1, v_2]$ s.t. $\va*{x} = P \va*{\xi}$. Solve for $\va*{\xi}$ and then expand with $\eta  = h(\xi, \tilde \mu)$
+\textbf{Centre Manifold:} If $x_0$ not hyperbolic ($0$ real part), then $E^c$ is the centre subspace. Then $\exists W^c$ parallel to $E^c$, of class $C^r$, and invariant under flow. Want bifurcation at $\mu=0$, so with change of variables first find eigvecs $v_1,v_2$. 
+Then, construct $P:= [v_1, v_2]$ s.t. $\va*{x} = P \va*{\xi}$. 
+\textcolor{fg}{NOTE: first $v_i$ in $P$ is \textit{always} associated with Re($\lambda$)$=0$.}
+Solve for $\va*{\xi}$ and then expand with $\eta  = h(\xi, \tilde \mu)$
+\textbf{Alt: Centre Manifold:} If vector $v_1 \sim E^c= [a,b]^T$ then we have $y=bx/a$ (e.g. $[1,1]^T \rightarrow y=x$. If bifurcation at $\mu = \alpha$ then have $\mu = \tilde \mu + \alpha $ s.t. bifurcation when $\tilde \mu =0$. Then have $\dot x(x,y,\tilde \mu) = \ldots$ etc.
+Next, set up $y=h(x,\tilde \mu) = bx/a + b_1 \tilde \mu + b_2 \tilde \mu^2 + a_2 x^2 + c_2 \tilde \mu x$ and proceed as usual, s.t. $y$ is along $E^c$.
 \textbf{Transcritical Bifurcation:} Always two points, change type at origin. E.g. $\dot x  =  \mu x - x^2$
 \textbf{Saddle-Node:} E.g. $\dot x = \mu -x^2$ Bifurcation begins to exist at origin.
 \textbf{Supercritical:} E.g. $\dot x = \mu x - x^3$, where stable$\rightarrow 2\times $ stable and one unstable. 
