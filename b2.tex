@@ -50,7 +50,7 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
 \\ \textcolor{red}{CO:} 
 \textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $, with $J:=$ Jacobian of $r(x)$
-\textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian
+\textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian. Also note with EXACT linesearch for quadratic, $H(x-x_*) = -s$.
 \textbf{Rayleigh:} $ \frac{s^T H s}{ \norm{s}^2} \leq \norm{H}$
 \textbf{bArm:} To show existence of $\alpha$, have $\phi(\alpha) = f(x_k + \alpha_k s_k), \psi(\alpha) = \phi(\alpha) - \phi (0)- \beta \alpha \phi'(0) \leq 0$, show $\psi'(0) = (1-\beta) \phi'(0) \leq 0 \rightarrow \psi(\alpha) \downarrow$ with $\alpha$.
 \textbf{BFGS:} To show $H_{k+1} \geq 0$ nec. $\gamma^T \delta > 0$. Suff via $\gamma, \delta$ LI $\rightarrow $ use $\norm{\cdot}_H \rightarrow \gamma^T \delta > 0$.
