@@ -42,12 +42,12 @@ Then, construct $P:= [v_1, v_2]$ s.t. $\va*{x} = P \va*{\xi}$.
 \textcolor{fg}{NOTE: first $v_i$ in $P$ is \textit{always} associated with Re($\lambda$)$=0$.}
 Solve for $\va*{\xi}$ and then expand with $\eta  = h(\xi, \tilde \mu)$
 \textbf{Alt. Centre Manifold:} If vector $v_1 \sim E^c= [a,b]^T$ then we have $y=bx/a$ (e.g. $[1,1]^T \rightarrow y=x$. If bifurcation at $\mu = \alpha$ then have $\mu = \tilde \mu + \alpha $ s.t. bifurcation when $\tilde \mu =0$. Then have $\dot x(x,y,\tilde \mu) = \ldots$ etc.
-Next, set up $y=h(x,\tilde \mu) = bx/a + b_1 \tilde \mu + b_2 \tilde \mu^2 + a_2 x^2 + c_2 \tilde \mu x$ and proceed as usual, s.t. $y$ is along $E^c$.
+Next, set up $y=h(x,\tilde \mu) = bx/a + b_1 \tilde \mu + b_2 \tilde \mu^2 + a_2 x^2 + c_2 \tilde \mu x$ and proceed as usual but at $\tilde \mu =0$, s.t. $y$ is along $E^c$.
 \textbf{Transcritical Bifurcation:} Always two points, change type at origin. E.g. $\dot x  =  \mu x - x^2$
 \textbf{Saddle-Node:} E.g. $\dot x = \mu -x^2$ Bifurcation begins to exist at origin.
 \textbf{Supercritical:} E.g. $\dot x = \mu x - x^3$, where stable$\rightarrow 2\times $ stable and one unstable. 
 \textbf{Subcritical:} E.g. $\dot x = -\mu x + x^3$, where unstable$\rightarrow 2\times $ unstable and one stable. 
-\textbf{General co-dim 1:} If $\dot x = f$ then $\dot x = \mu f_u + 0.5 x^2 f_{xx} + x\mu f_{x \mu} + 0.5 \mu^2 f_{\mu \mu}$. Generally this is a saddle-node but if $f_u = 0 $ we have $\dot x = x\mu f_{x\mu}+ 0.5 x^2 f_{xx}$, which is a transcritical. However if $x = -x$ then $\dot x = x(\mu f_{x \mu } + \ldots) + x^3 (f_{xxx}/6 + \ldots) \rightarrow $ pitchfork. \textcolor{fg}{Saddle-node stable under perturbations!}
+\textbf{General co-dim 1:} If $\dot x = f$ then $\dot x = \mu f_u + 0.5 x^2 f_{xx} + x\mu f_{x \mu} + 0.5 \mu^2 f_{\mu \mu}$. Generally this is a saddle-node but if $f_u = 0 $ we have $\dot x = x\mu f_{x\mu}+ 0.5 x^2 f_{xx}$, which is a transcritical. However if flows invariant under $x = -x$ (reflectional symmetry) then $\dot x = x(\mu f_{x \mu } + \ldots) + x^3 (f_{xxx}/6 + \ldots) \rightarrow $ pitchfork. \textcolor{fg}{Saddle-node stable under perturbations!}
 \textbf{Homoclinic Orbits} Sum of roots of cubic = - coeff. of $x^2$
 \\ \textcolor{red}{FPDE:}
 \textbf{Types:} $1^{st}: \exists$ scale s.t. solution found, not so for $2^{nd}$.
@@ -74,6 +74,15 @@ If $y(b) = d \rightarrow d = y(b+\epsilon \beta) + \epsilon \eta(b + \epsilon \b
 \textbf{Control:} Have $\int \xi h_x + \eta h_u dt =0, \dot \xi = \xi  f_x + \eta f_u$. Sub for $\eta$, IVP s.t. $ \frac{d}{dt} \frac{h_u}{f_u}  = h_x - f_x  \frac{h_u}{f_u}   $ and $\dot x = f$
 \textbf{Hamiltonian (Control):} $H := f \frac{h_u}{f_u} -h$ s.t. $\dot H = \frac{h_u}{f_u} f_t - h_t \rightarrow$ autonomous if $h_t = f_t = 0$.
 \textbf{Fredholm Alt Integ Eqs.} For $y = f+ \int K(x,t)y(t) dt$ we have 
-\textcolor{fg}{ONE} (N) has a unique sol $y=0$ if $f=0$, and adjoint has unique sol, or \textcolor{fg}{TWO} (H) as sols $y_1 \ldots y_r$iff $\forall$ solutions to $H^*$, $z_i$, we have $<f,z_i> = 0$. \textcolor{blue}{EX:} Solve $y=f+\lambda \int \sin(x+t) y(t)dt$. Unique sol iff (H) has trivial sol $\rightarrow X_1 = \int y \cos(t) = \int \cos(t) y_H(t) \rightarrow$ solve $[1, -\lambda \pi; -\lambda \pi, 1] [X_1, X_2]^T = [0,0]^T \rightarrow$ unique sol if $\lambda \neq \pm 1/\pi$. In this case $X_1 = \int \cos(x) y_N(x) =\lambda \pi X_2 + \int f(x) \cos(x)$, and similar for $X_2$. Invert matrix and solve. If non-unique sol, then find sols to (H) first. If $\lambda = 1/\pi$ then $X_1 = X_2 = X$ so $Ly = y- \pi^{-1} \left( \sin (x) +\cos(x) \right) \int \cos(x) y(x) dx$ with sols $y=c_1 \left( \sin(x) + \cos(x) \right)$ by inspection. Problem self adjoint so $Ly = 0 = L^* w$ so need $\int f(x) w(x) =0$ i.e. $\int f(x) (\sin(x) + \cos(x)) = 0$, repeat for $\lambda =-1/\pi$. Then $y = y_p(x) + \sum_i y_{h,i}(x)$
+\textcolor{fg}{ONE} (N) has a unique sol $y=0$ if $f=0$, and adjoint has unique sol, or \textcolor{fg}{TWO} (H) as sols $y_1 \ldots y_r$iff $\forall$ solutions to $H^*$, $z_i$, we have $<f,z_i> = 0$. 
+\textcolor{fg}{GENERAL CASE:} Have $y = f + \lambda A G_1 + \lambda B G_2$. Solve for system $[\alpha_1, \alpha_2;,\alpha_3,\alpha_4][A,B]^T = [\gamma_1,\gamma_2]^T$ with NONUNIQUE sols for $\lambda = \lambda_*$. 
+Now for $\lambda= \lambda_*$, want to solve $L^*w = 0$ and show this is orthogonal to RHS. First solve $[\alpha_1, \alpha_2;,\alpha_3,\alpha_4][A,B]^T = [0,0]^T$. Then we have $w = \lambda_* A (F(G_1,G_2))$. Check if $\int f w = 0$. If so, return to NONHOM case and solve $[\alpha_1, \alpha_2;,\alpha_3,\alpha_4]_{\lambda_*}[A,B]^T = [\gamma_1,\gamma_2]^T$ to get $B = -\frac{\alpha_1}{\alpha_2} A + \frac{\gamma_1}{\alpha_2}$. Sub this into $y = f + \lambda_* A G_1 + \lambda_* B(A) G_2$.
+\textcolor{blue}{EX:} 
+Solve $y=1-x^2 + \lambda \int (1-5 x^2 t^2)y(t)\; dt = 1-x^2 + \lambda A - 5 \lambda B x^2$.
+Have $A:= \int y_N(t) = \int 1-x^2 + \lambda A + \ldots = \lambda A - \frac{5 \lambda}{3} + \frac{2}{3}$. Repeat for $B$ s.t. $[1-\lambda, 5\lambda/3; -\lambda/3, 1+\lambda] [A,B]^T = [2/3, 2/15]^T$.
+Unique sols if $\lambda \neq \pm \frac{3}{2} \rightarrow$ try when $\lambda_* = \frac{-3}{2} $.
+Have $L^* w_H =  \lambda A - 5 \lambda_* B x^2 \rightarrow A := \int \lambda_* A - 5 \lambda_* B x^2$, and $B:= \int \ldots$. Both give consistent results $A = B$ so $w_H = \lambda_*A(1-5x^2)$. Check that $\int w_H(x) (1-x^2) = 0$, so we have shown nullspace of adj. orthog. to RHS. 
+\textcolor{blue}{Note that we may also find $A,B$ for adjoint quicker via $[1-\lambda, 5\lambda/3; -\lambda/3, 1+\lambda]_{\lambda_*} [A,B]^T =[0,0]^T$.}
+Lastly, return to (N), and having verified $\lambda_*$ permits a solution, solve $[1-\lambda, 5\lambda/3; -\lambda/3, 1+\lambda]_{\lambda_*} [A,B]^T =[2/3,2/15]^T \rightarrow A-B = 4/15$ when $\lambda = -3/2$. Sub this into $y=1-x^2\ldots$ for solution.
 \textbf{Fred Diff Eq.} For nonunique sol to exist, need $<Ly,w> = <f,w> \forall \; w s.t. L^*w=0$
 \end{document}
