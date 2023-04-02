@@ -50,6 +50,7 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
 \\ \textcolor{red}{CO:} 
 \textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $, with $J:=$ Jacobian of $r(x)$
+\textbf{Linesearch Convergence:} Show $x_{k+1} - x_* = \Psi(x_k)-x_* = \Psi(x_* + e_k) -x_*$ and taylor expand.
 \textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian. Also note with EXACT linesearch for quadratic, $H(x-x_*) = -s$.
 \textbf{Rayleigh:} $ \frac{s^T H s}{ \norm{s}^2} \leq \norm{H}$
 \textbf{bArm:} To show existence of $\alpha$, have $\phi(\alpha) = f(x_k + \alpha_k s_k), \psi(\alpha) = \phi(\alpha) - \phi (0)- \beta \alpha \phi'(0) \leq 0$, show $\psi'(0) = (1-\beta) \phi'(0) \leq 0 \rightarrow \psi(\alpha) \downarrow$ with $\alpha$.
@@ -81,10 +82,10 @@ $s^T J_i =0 \; \forall \; i$ s.t. $\lambda_i > 0, c_i =0$,
 $s^T J_i \geq 0 \; \forall \; i$ s.t. $\lambda_i = 0, c_i =0$, for $J,c,\lambda$ evaluated at $x_*$
 For EQUALITY constraints instead need positive definite $\forall$ $s$ s.t. $J^T s =0$
 \textbf{Convex Problems} $\hat x= KKT \Rightarrow \hat x = \argmin f(x)$. Proof via $f \geq f(\hat x) + \grad f^T(x-\hat x)$ so $f \geq f(\hat x) + \hat y^T A (x-\hat x) + \sum_{i\in I} \lambda_i J^T_i(x-\hat x)$. Choose $Ax=b$, and note that $c_i$ concave s.t. $\lambda_i J^T_i(\hat x) (x-\hat x) \geq \lambda_i (c_i(x) - c_i(\hat x)) = \lambda_i c_i (x) \geq 0 \rightarrow f(x) \geq f(\hat x)$.
-\textbf{Log-Barrier Global Convergence:} With $f\in C^1, \lambda_{ik} = \frac{\mu_k}{c_{ik}}, \norm{\grad f_u (x_k)} \leq \epsilon_k, \mu_k \rightarrow 0, x_k \rightarrow x_*$. Also, $\grad c(x_*) LI \; \forall \; i \in \mathcal{A}$ (active constraints). Then $x_*$ KKT and $\lambda \rightarrow \lambda_*$.
+\textbf{Log-Barrier Global Convergence:} (for $f-\sum \mu \log(c_i)$) With $f\in C^1, \lambda_{ik} = \frac{\mu_k}{c_{ik}}, \norm{\grad f_u (x_k)} \leq \epsilon_k, \mu_k \rightarrow 0, x_k \rightarrow x_*$. Also, $\grad c(x_*) LI \; \forall \; i \in \mathcal{A}$ (active constraints). Then $x_*$ KKT and $\lambda \rightarrow \lambda_*$.
 PROOF:
 Have $J_A^\dagger(x_*) = (J_A(x_*) J_A(x_*)^T)^{-1}J_A(x_*)$. Also, $c_A=0,c_I >0$. So $\lambda = \mu/c \rightarrow 0$ so $\lambda_I =0$ as $c_I>0$. 
-Next $\norm{\grad f_k - J_{Ak}\lambda_{Ak} } \leq \norm{\grad f_k - J^T_k \lambda_k} + \norm{\lambda_I} \norm{\ldots} = \norm{\grad f_{\mu k}}\rightarrow 0$. 
+Next $\norm{\grad f_k - J_{Ak}\lambda_{Ak} } \leq \norm{\grad f_k - J^T_k \lambda_k} + \norm{\lambda_I} M_1 = \norm{\grad f_{\mu k}}\rightarrow 0$. 
 Now $ \norm{J_A^\dagger \grad f_k - \lambda_{kA}} \leq \norm{J_A^\dagger} \norm{\grad f_k - J_{Ak}^T \lambda_{Ak} }\rightarrow 0$. 
 So with triangle ineq $ \norm{\lambda_{kA}- J_{Ak}^\dagger \grad f_k + J_{Ak}^\dagger \grad f_k - \lambda_{A*}} \rightarrow 0$, via cont. of $\grad f$ and $J^\dagger$. Thus $\lambda_{Ak} \rightarrow \lambda_{A*} \geq 0$. 
 Combine s.t. $\grad f_k - J_{Ak}^T \lambda_{AK}$ with $k \rightarrow *$ so get KKT.
