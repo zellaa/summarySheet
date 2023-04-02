@@ -16,6 +16,7 @@
 % The total length of your summary notes should not exceed 2 sides of a
 % single sheet of A4, with maximum 58 lines of text per page.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{cancel}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \definecolor{fg}{RGB}{34,139,34}
 \begin{document} \noindent
@@ -55,10 +56,13 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{Rayleigh:} $ \frac{s^T H s}{ \norm{s}^2} \leq \norm{H}$
 \textbf{bArm:} To show existence of $\alpha$, have $\phi(\alpha) = f(x_k + \alpha_k s_k), \psi(\alpha) = \phi(\alpha) - \phi (0)- \beta \alpha \phi'(0) \leq 0$, show $\psi'(0) = (1-\beta) \phi'(0) \leq 0 \rightarrow \psi(\alpha) \downarrow$ with $\alpha$.
 \textbf{BFGS:} To show $H_{k+1} \geq 0$ nec. $\gamma^T \delta > 0$. Suff via $\gamma, \delta$ LI $\rightarrow $ use $\norm{\cdot}_H \rightarrow \gamma^T \delta > 0$.
-\textbf{Quad Penalty Meth} With $y = -c/\sigma, \norm{\grad_\sigma \Phi} \leq \epsilon^k, \sigma^k \rightarrow 0,x\rightarrow x_*, \grad c(x_*)$ LI, then $y \rightarrow y_*$, $x\rightarrow KKT$, if $f,c \in C^1$. \textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_k \grad f_k - I y_*} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. Also, $\grad f_* - J^T_* y_* = 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
+\textbf{Quad Penalty Meth} With $y = -c/\sigma, \norm{\grad_\sigma \Phi} \leq \epsilon^k, \sigma^k \rightarrow 0,x\rightarrow x_*, \grad c(x_*)$ LI, then $y \rightarrow y_*$, $x\rightarrow KKT$, if $f,c \in C^1$.
+\textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_* \grad f_* - y_k} \leq \cancel{\norm{J_k^{\dagger}\grad f_k - J^\dagger_* \grad f_*}} + \norm{J_k^\dagger \grad f_k - y_k}$.
+Next $\norm{J_k^\dagger \grad f_k - y_k} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. 
+Also, $\grad f_* - J^T_* y_* \rightarrow 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
 \textbf{Quad Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 f, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
 \textbf{Trust Region Radius:} $\rho_k := (f(x_k) - f(x_k+ s_k))/(f(x_k) - m_k(s_k))$
-\textbf{TR-Method:} If $\rho \approx 1$ then double radius, update step $x_{k+1} = x_k + s_k$. If $\rho \geq 0.1$ then same radius, update step. If $\rho$ small shrink radius, don't update step.
+\textbf{TR-Method:} If $\rho \geq 0.9 $ then double radius, update step $x_{k+1} = x_k + s_k$. If $\rho \geq 0.1$ then same radius, update step. If $\rho$ small shrink radius, don't update step.
 \textbf{Cauchy:} \textcolor{blue}{Is the point on gradient which minimises the quadratic model within TR}. Want $m_k(s_k) \leq m_k(s_{kc})$, where \textcolor{fg}{$s_{kc} := - \alpha_{kc} \grad f(x_k)$}, and \textcolor{fg}{$\alpha_{kc}:= \argmin m_k\left( \alpha \grad f(x_k) \right)$} subject to $\norm{\alpha \grad f} \leq \Delta$, i.e. $\alpha_{max} := \Delta/\norm{ \grad f}$.
 \textbf{Calculation of Cauchy:}
 We want to prove cauchy model decrease i.e. \textcolor{fg}{$ f(x_k) - m_k(s_k) \geq f(x_k) - m_k (s_{kc}) \geq 0.5 \norm{\grad f_k} \min\left\{ \Delta_k, \frac{\norm{\grad f_k}}{\norm{\grad ^2 f_k}}  \right\}$}.
@@ -90,7 +94,7 @@ Now $ \norm{J_A^\dagger \grad f_k - \lambda_{kA}} \leq \norm{J_A^\dagger} \norm{
 So with triangle ineq $ \norm{\lambda_{kA}- J_{Ak}^\dagger \grad f_k + J_{Ak}^\dagger \grad f_k - \lambda_{A*}} \rightarrow 0$, via cont. of $\grad f$ and $J^\dagger$. Thus $\lambda_{Ak} \rightarrow \lambda_{A*} \geq 0$. 
 Combine s.t. $\grad f_k - J_{Ak}^T \lambda_{AK}$ with $k \rightarrow *$ so get KKT.
 \textbf{Primal-Dual Newton:} Have $\grad f = J^T \lambda, C(x) \lambda = \mu e$ so $[\grad ^2 \mathcal{L}, -J^T;\Lambda J, C] [dx, d\lambda]^T = - [\grad f -J^T \lambda, C\lambda -\mu e]^T$ 
-\textbf{Augmented Lagrangian:} Same result as QUAD PEN METH but $x\rightarrow x_*$ if $\sigma \rightarrow 0$ for bounded $u_k$ or $u_k$ to $y_*$ for bounded $\sigma_k$. Proof via $\norm{c_k} =\leq \sigma_k \norm{y_k - y_*} + \sigma_k \norm{u_k - y_*}$. If $u_k$ bounded then $\rightarrow 0$ as $y_k \rightarrow y_*$, else trivially if $u_k \rightarrow y_*$ then to $0$.
+\textbf{Augmented Lagrangian:} Same result as QUAD PEN METH but $x\rightarrow x_*$ if $\sigma \rightarrow 0$ for bounded $u_k$ or $u_k$ to $y_*$ for bounded $\sigma_k$. Proof via $\norm{c_k} \leq \sigma_k \norm{y_k - y_*} + \sigma_k \norm{u_k - y_*}$. If $u_k$ bounded then $\rightarrow 0$ as $\sigma \rightarrow 0$, else trivially if $u_k \rightarrow y_*$ then to $0$.
 \textbf{GLM Global Convergence:} With $f\in C^1, \grad f$ L-Cont, and $f$ bdd below, then $\grad f_l = 0$ or $\lim \min \left\{ \frac{\abs{\grad f^T s }}{ \norm{s}},\abs{s^T \grad f}  \right\}$ to $0$. In non-trivial case, via bArmijo, $f_k - f_{k+1} \geq - \beta \alpha_k  s_k^T \grad f_k  = \beta \alpha_k \abs{ s^T_k \grad f_k}$. Sum s.t. $f_0 - f_{k+1} \geq \beta \sum \alpha_k \abs{ s^T_k \grad f_k}$, so term in sum to $0$. For all $k$ successful we then have $\alpha_k \abs{s^T_k \grad f_k} \geq \frac{(1-\beta)\tau }{L } \left( \frac{\abs{s^T_k \grad f_k}}{ \norm{s_k} }  \right)^2 \geq 0$ so squared term to $0$. For unsuccesful steps $\alpha_k \geq \alpha_0$ so no norm term.
 \textbf{Convergence Newton LSearch:} Need $f\in C^2$ then if $H_k$ (hessian) bdd above and below, so $\lambda_n \leq \lambda(H_k) \leq \lambda_1$. So $\abs{s^T_k \grad f_k} \geq \lambda_1^{-1} \norm{\grad f_k}^2$. Also $ \norm{s_k}^2 \leq \lambda_n^{-2} \norm{\grad f_k}^2$. 
 Thus $\lim \min \left\{ \lambda_n \lambda_1^{-1} \norm{\grad f}, \lambda_1^{-1} \norm{\grad f}^2 \right\} \rightarrow 0$ from GLM Convergence Thm.
