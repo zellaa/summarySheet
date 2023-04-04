@@ -30,7 +30,7 @@
 \textbf{C-F:} $\sigma_i(A) \sigma_n(B) \leq \sigma_i(AB) \leq \sigma_i(A) \sigma_1(B)$
 \textbf{QR Algo:} $A_{k+1} = Q_k^TA_kQ_k \rightarrow A_{k+1} = \left( Q^{(k)} \right)^T A Q^{(k)}$.
 Next $A^{k-1} = (Q_1 \ldots Q_{k-1}) (R_{k-1} \ldots R_1)$, so $A_k = Q_k R_k = (Q^{(k-1)})^TAQ^{(k-1)}$ so $Q^{(k-1)}A_k = AQ^{(k-1)}$. So $A^k = (A Q^{(k-1)})R^{(k-1)} = Q^{(k)}R^{(k)}$ as $A_k = Q_k R_k$.
-\textbf{Krylov:} Usually want $x_k-x_0 \in \mathcal{K}_k$
+\textbf{Krylov:} Usually want $x_k-x_0 \in \mathcal{K}_k$. Also note to show \textcolor{blue}{CG span properties} first show $\left\{ r_k \right\} \subset \left\{ p_k \right\}$ etc, then show $ \left\{ p_k \right\} $ LI.
 \textbf{GMRES:} $\min \norm{AQ_k y -b}_2 \rightarrow \min \norm{H_k y - \norm{b}e_1}$. Bound $\norm{r_k} = \norm{ M p(\Lambda) M^{-1} r_0}$
 \textbf{GMRES Conv:} If $x_k = p_{k-1}(A)b$ have $\min \norm{Ax_k - b} =  \min_{p(0)=1} \norm{A p_{k-1}(A)b-b} \leq k_2(A) \norm{p(\Lambda)b}$ with $p(0)=1$
 \textbf{CG Bound:} With $c = x-x_0, c_k = x_k-x_0$ s.t. $r_k=A(c-c_k)$ we have $r_k^T v=0 \; \forall \; v \in \mathcal{K}_k$ so $v^tA(c-c_k)=0$, s.t. $y=c_k = \argmin \norm{c-y}_A$. WTS $e_k = e_0 p_k(A)$ with $p(0)=1$, and write $e_0 := \sum \gamma_i v_i$ with $Av_i = \lambda_i v_i \rightarrow \norm{e_k}_A = \min_{p_k,p(0)=1}\max \abs{p(\lambda_i} \norm{e_0}_A$
