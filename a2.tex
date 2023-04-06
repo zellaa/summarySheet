@@ -16,7 +16,7 @@
 % The total length of your summary notes should not exceed 2 sides of a
 % single sheet of A4, with maximum 58 lines of text per page.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\usepackage{cancel}
 \definecolor{fg}{RGB}{34,139,34}
 \begin{document} \noindent
 \textcolor{red}{NS:}
@@ -50,28 +50,27 @@ Next, set up $y=h(x,\tilde \mu) = bx/a + b_1 \tilde \mu + b_2 \tilde \mu^2 + a_2
 \textbf{Subcritical:} E.g. $\dot x = -\mu x + x^3$, where unstable$\rightarrow 2\times $ unstable and one stable. 
 \textbf{General co-dim 1:} If $\dot x = f$ then $\dot x = \mu f_u + 0.5 x^2 f_{xx} + x\mu f_{x \mu} + 0.5 \mu^2 f_{\mu \mu}$. Generally this is a saddle-node but if $f_u = 0 $ we have $\dot x = x\mu f_{x\mu}+ 0.5 x^2 f_{xx}$, which is a transcritical. However if flows invariant under $x = -x$ (reflectional symmetry) then $\dot x = x(\mu f_{x \mu } + \ldots) + x^3 (f_{xxx}/6 + \ldots) \rightarrow $ pitchfork. \textcolor{fg}{Saddle-node stable under perturbations!}
 \textbf{Homoclinic Orbits} Sum of roots of cubic = - coeff. of $x^2$
-\\ \textcolor{red}{FPDE:}
-\textbf{Types:} $1^{st}: \exists$ scale s.t. solution found, not so for $2^{nd}$.
-\textbf{Heat:} $\hat T = u(\hat T_{\infty} - \hat T_{-\infty}) + \hat T_{-\infty}$
-\textbf{Oil Spread:} Dims: $x = x_f + \varepsilon \xi, t = \tau$
-\textbf{Ground Spread:} $(1-s) \phi h_t + Q_x =0; Q\sim -h h_x, 0<x_s<x_f$. Have $h(x_f)=0, h_t(x_s)=0$, and $h h_x |_{x=0,x_f} = 0$ (i.e. no flux at centre and front), and $h,hh_x$ cont. at joint.
-\textbf{Expansions:} Let $\xi = z + \epsilon \eta$ for perturbations
-\textbf{Scale:} Try $x=x_f + \epsilon \xi$ for groundwater
-\textbf{Stefan:} $S_0 = C\left( T_1-T_m \right)/L$, condition = $\rho L \dot s = k T_x |^{s_+}_{s_-}$
-\textbf{1ph Stefan:} Bar = $T_h | liq |_s sol | INS$. 
-Use $T = T_m + (T_1-T_m)u$ s.t. $S_0 u_t = u_{xx}, u=1\;@ \; x=0,\left\{\dot s = -u_x,u=0\right\} @ \;x=s, s(0)=0$. Sim. sol is $s= \beta \sqrt{t}, f=f(x/\sqrt{t})$
-\textbf{2ph Stefan:}
-Use $T = T_m + (T_1-T_m)u$ s.t.
-$S_0 u_t = u_{xx} \; @ \; 0<x<s,(S_0/\kappa) u_t = u_{xx} \; @ \; s<x<1, u=1\;@ \; x=0,u_x=0 \;@ \; x=1,\left\{\dot s =Ku_x|_{s_+} -u_x|_{s_-},u=0\right\} @ \;x=s, \left\{s=0, u=-\theta\right\} \; @ \; x=0$. Here $\theta := (T_m-T_0)/(T_1-T_m), \kappa := c_1k_1/(c_2k_2), K:= k_2/k_1$ Sim. sol is $s= \beta \sqrt{t}, f=f(x/\sqrt{t})$
-\textbf{2-Dim:} $ U_n = \hat n \cdot u = K(u_2)_n - (u_1)_n$. If $x=f(y,t)$ then $\hat n := \grad (x-f) = [1,-f_y]^T/\sqrt{1+f_y^2}$
-\textbf{Welding:} Have $0<s_2<s_1$. Have cold $x=a$, no flux $x=0$. $\theta=1$ in liquid. In mush $\rho L \theta_t = J^2/\sigma$, CoE $\rightarrow \theta \rho L \dot s + k T_x |^{s_+}_{s_-} = 0$. Have $\theta$ cont. $(=0)$ at $s_1$. 
-I.e. we have $S_0 u_t = u_{xx}+q, u_x = 0 \; @ \; x=0, u=-1 \; @ \; x=1, \theta =0 \;@ \; x=s_1$. Also $\theta_t = q$ in mush.
 \\ \textcolor{red}{FMM:} 
+\textbf{Point Constraint:} If $G(y,z) = 0$ then $\int_a^b \left( \left[ F_y - \frac{d}{dx} \left(F_{y'}\right) \right]\eta + \left[ F_z - \frac{d}{dx} \left( F_{z'} \right) \right] \xi \right)=0$.
+Taylor expand $G$ s.t. $G_y \eta + G_z \xi=0$, multiply by $\lambda(x)$ s.t. $\int \lambda G_y \eta + \lambda G_z \xi = 0$.
+Rearrange from before s.t. $F_y - \lambda G_y = \frac{d}{dx} \left( F_{y'} \right)$, and similar for $z,z'$.
 \textbf{Integral Constraint} If $J[y] = \int F dx$ with $\int G dx = C$ then $\tilde J[y] = \int F- \lambda G dx$ 
 \textbf{Hamiltonian:} $H:= y' F_{y'} -F \rightarrow H'=-F_x$. If $F=F(y,\dot y)$ then $H=C$
 \textbf{Hamilton's Eqs:} $p := F_{y'}, q=y$ and so $p'=-H_q, q'=H_p$
+\textbf{Derive Hamilton Eq:} Have $H = py'-F$, and note $p' = F_y$. 
+EQ1:
+So $\textcolor{fg}{H_{y'}} = p + y' p_{y'} -F_{y'} = y' \textcolor{blue}{p_{y'}}$.
+Also, $\textcolor{fg}{H_{y'}} = H_q \bcancel{q_{y'}} + H_p p_{y'} = H_p \textcolor{blue}{p_{y'}}$ as $q = y$. 
+Therefore $y' = \textcolor{blue}{q' = H_p}$.
+EQ2: $p' = F_y  = (py'-H)_y = \textcolor{blue}{y'p_y} -\textcolor{fg}{H_y}$.
+But $\textcolor{fg}{H_y} = H_p p_y + H_q q_y = \textcolor{blue}{y' p_y} + H_q$.
+So finally $\textcolor{blue}{p' = -H_q}$.
 \textbf{Free Boundary:} $J[y,b] = \int_a^b F(x,y,y') dx$ where $b$ free. Expand with $y + \epsilon \eta, b + \epsilon \beta \rightarrow J = J_0 + \epsilon \left\{ \int_a^b \eta F_y + \eta' F_{y'} dx + \beta F(b,y(b),y'(b))  \right\}$
 If $y(b) = d \rightarrow d = y(b+\epsilon \beta) + \epsilon \eta(b + \epsilon \beta)= y(b) + \epsilon(\beta y'(b) + \eta (b))$ so $\eta(b) = - \beta y'(b)$. IVP on integral so $\beta\left[ F- y'F_{y'} \right]_{x=b} + \int\left( \ldots \right)=0$ so \textcolor{fg}{$F= y'F_{y'}$} at free boundary.
+\textbf{Multiple Ind. Variables:} 
+For $J = \int F(x,\phi, \phi_x,\phi_y)$.
+$J[\phi + \epsilon \eta] = J_0 + \epsilon \int \int_D \left( \eta F_\phi + \eta_x F_{\phi_x} + \eta_y F_{\phi_y} \right)$. Via Green's $\grad \cdot (\eta \va*{f}) = \grad \eta \cdot \va*{f} + \eta \grad \cdot \va*{f} $, so with $ \va*{f} = (F_{\phi_x}, F_{\phi_y})$ we have $\int \int (\eta_x F_{\phi_x} + \eta_y F_{\phi_y}) = - \int \int_D \left( \eta \partial_x\left( F_{\phi_x} \right) + \eta \partial_y \left( F_{\phi_y} \right) \right) + \cancel{\int_{\partial D} \left( \eta \left[ F_{\phi_x} \eta_x + F_{\phi_y} \eta_y \right] \right)}$ .
+I.e. we have $F_\phi = \partial_x \left( F_{\phi_x}  \right)+ \partial_y \left( F_{\phi_y} \right)$
 \textbf{Control:} Have $\int \xi h_x + \eta h_u dt =0, \dot \xi = \xi  f_x + \eta f_u$. Sub for $\eta$, IVP s.t. $ \frac{d}{dt} \frac{h_u}{f_u}  = h_x - f_x  \frac{h_u}{f_u}   $ and $\dot x = f$
 \textbf{Hamiltonian (Control):} $H := f \frac{h_u}{f_u} -h$ s.t. $\dot H = \frac{h_u}{f_u} f_t - h_t \rightarrow$ autonomous if $h_t = f_t = 0$.
 \textbf{Fredholm Alt Integ Eqs.} For $y = f+ \int K(x,t)y(t) dt$ we have 
@@ -87,4 +86,26 @@ Have $L^* w_H =  \lambda A - 5 \lambda_* B x^2 \rightarrow A := \int \lambda_* A
 Lastly, return to (N), and having verified $\lambda_*$ permits a solution, solve $[1-\lambda, 5\lambda/3; -\lambda/3, 1+\lambda]_{\lambda_*} [A,B]^T =[2/3,2/15]^T \rightarrow A-B = 4/15$ when $\lambda = -3/2$. Sub this into $y=1-x^2\ldots$ for solution.
 \textbf{Fred Diff Eq.} For nonunique sol to exist, need $<Ly,w> = <f,w> \forall \; w s.t. L^*w=0$
 \textbf{Trig:} $\int^{2 \pi}_0 \cos^2 = \int^{2 \pi}_0 \sin^2 = \pi$
+\\ \textcolor{red}{FPDE:}
+\textbf{Types:} $1^{st}: \exists$ scale s.t. solution found, not so for $2^{nd}$.
+\textbf{Heat:} $\hat T = u(\hat T_{\infty} - \hat T_{-\infty}) + \hat T_{-\infty}$
+\textbf{Oil Spread:} Dims: $x = x_f + \varepsilon \xi, t = \tau$
+\textbf{Ground Spread:} $(1-s) \phi h_t + Q_x =0; Q\sim -h h_x, 0<x_s<x_f$. Have $h(x_f)=0, h_t(x_s)=0$, and $h h_x |_{x=0,x_f} = 0$ (i.e. no flux at centre and front), and $h,hh_x$ cont. at joint.
+\textbf{Expansions:} Let $\xi = z + \epsilon \eta$ for perturbations
+\textbf{Scale:} Try $x=x_f + \epsilon \xi$ for groundwater
+\textbf{Stefan:} $S_0 = C\left( T_1-T_m \right)/L$, condition = $\rho L \dot s = k T_x |^{s_+}_{s_-}$
+\textbf{1ph Stefan:} Bar = $T_h | liq |_s sol | INS$. 
+Use $T = T_m + (T_1-T_m)u$ s.t. $S_0 u_t = u_{xx}, u=1\;@ \; x=0,\left\{\dot s = -u_x,u=0\right\} @ \;x=s, s(0)=0$. Sim. sol is $s= \beta \sqrt{t}, f=f(x/\sqrt{t})$
+\textbf{2ph Stefan:} (melting)
+Use $T = T_m + (T_1-T_m)u$ s.t.
+$S_0 u_t = u_{xx} \; @ \; 0<x<s,(S_0/\kappa) u_t = u_{xx} \; @ \; s<x<1, u=1\;@ \; x=0,u_x=0 \;@ \; x=1,\left\{\dot s =Ku_x|_{s_+} -u_x|_{s_-},u=0\right\} @ \;x=s, \left\{s=0, u=-\theta\right\} \; @ \; x=0$. Here $\theta := (T_m-T_0)/(T_1-T_m), \kappa := c_1k_1/(c_2k_2), K:= k_2/k_1$ Sim. sol is $s= \beta \sqrt{t}, f=f(x/\sqrt{t})$
+\textbf{2-Dim:} Normal velocity $ U_n := \hat n \cdot u = K(u_2)_n - (u_1)_n$ in Stefan Prob. If $x=f(y,t)$ then $\hat n := \grad (x-f) = [1,-f_y]^T/\sqrt{1+f_y^2}$.
+\textcolor{blue}{EX:}
+Consider $u_1 :=- \lambda_1 (x-V_0 t) + \epsilon \tilde u_1(x,y,t),  u_2 :=- \lambda_2 (x-V_0 t) + \epsilon \tilde u_2(x,y,t)$.
+If position of boundary $x_b := V_0 t + \epsilon \xi(y,t) = f(y,t)$.
+So, normal velocity $U_n:= \hat n \cdot u$, where we have $u = [\dot x_b, \dot y_b]^T$ so $U_n \sim [1,-f_y] [\dot x_b, 0]^T = \dot x_b = V_0 + \epsilon \xi_t$. On RHS, we have $(u_i)_n = \hat n \dot \grad u_i \sim [1,-f_y]^T \grad u = [1, - \epsilon \xi_y] [u_x,u_y]^2 = u_x - \epsilon \xi_y u_y$. For e.g. $u_1$ we have $(u_1)_n = -\lambda_1 + \epsilon (\tilde u_1)_x - \epsilon^2 \xi_y ( \tilde u_1)_y$. 
+So, to $O(\epsilon^0)$ we have $V_0 = -\lambda_2 K + \lambda_1$, and to $O(\epsilon^1)$ $\xi_t = K ( \tilde u_2)_x - (\tilde u_1)_x$.
+\textbf{Welding:} Have $0<s_2<s_1$. Have cold $x=a$, no flux $x=0$. $\theta=1$ in liquid. In mush $\rho L \theta_t = J^2/\sigma$, CoE $\rightarrow \theta \rho L \dot s + k T_x |^{s_+}_{s_-} = 0$. Have $\theta$ cont. $(=0)$ at $s_1$. 
+I.e. we have $S_0 u_t = u_{xx}+q, u_x = 0 \; @ \; x=0, u=-1 \; @ \; x=1, \theta =0 \;@ \; x=s_1$. Also $\theta_t = q$ in mush.
+\textbf{ERF:} $\erf{x} = \frac{2}{\sqrt{\pi}} \int_0^y e^{-y^2}$ s.t. if $f' = e^{ -\frac{\eta^4}{4k} }, f:= A \sqrt{\pi k} \erf{ \frac{\eta}{2 k}} + B $, $(\erf{x})' = \frac{2}{\sqrt{\pi}} e^{-y^2}$.
 \end{document}

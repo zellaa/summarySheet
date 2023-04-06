@@ -495,6 +495,17 @@ INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
 INPUT ./a2.aux
 INPUT a2.aux
 INPUT a2.aux
@@ -587,4 +598,5 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
