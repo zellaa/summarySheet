@@ -62,7 +62,7 @@ So $ \norm{XM^T} \leq  \frac{\sqrt{n}+ \sqrt{r}}{\sqrt{r} - \sqrt{\hat r}} $.
 \textbf{Schur:} Take $A v_1 = \lambda_1 v_1$; construct $U_1 = [v_1, V_\perp] \rightarrow A U_1 = U_1 [e_1,X]$. Repeat.
 \textbf{Conditioning} $\kappa_2(A) = \sigma_1 /\sigma_n = \norm{A}\norm{A^{-1}}$
 \textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
-\textbf{Pseud-Inv:} $A^\dagger  = V \Sigma^{-1} U^T$
+\textbf{Pseud-Inv:} $A^\dagger  = V \Sigma^{-1} U^T = (A^T A)^{-1}A^T$. Else have $A^\dagger = A^T(AA^T)^{-1}$
 \\ \textcolor{red}{CO:} 
 \textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $, with $J:=$ Jacobian of $r(x)$
 \textbf{Linesearch Convergence:} Show $x_{k+1} - x_* = \Psi(x_k)-x_* = \Psi(x_* + e_k) -x_*$ and taylor expand.
