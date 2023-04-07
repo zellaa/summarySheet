@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.23)  6 APR 2023 13:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.23)  7 APR 2023 12:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -568,7 +568,7 @@ LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
 (Font)              using `U/stmry/m/n' instead on input line 67.
 
 
-Overfull \hbox (1.47765pt too wide) in paragraph at lines 22--115
+Overfull \hbox (1.47765pt too wide) in paragraph at lines 22--116
 [] \OMS/cmsy/m/n/10 ^^T \OT1/cmr/m/n/10 1 + [][]$. Now $[] \OMS/cmsy/m/n/10 ^^T
  [] \OT1/cmr/m/n/10 + []$ by MP, and $[] = \OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/1
 0 ([]\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )[] \OMS/cmsy/m/n/10 ^^T
@@ -584,7 +584,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  15031 strings out of 478238
  289266 string characters out of 5850456
- 627854 words of memory out of 5000000
+ 628854 words of memory out of 5000000
  33006 multiletter control sequences out of 15000+600000
  474627 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -604,7 +604,7 @@ fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm7.pfb>
-Output written on b2.pdf (2 pages, 202761 bytes).
+Output written on b2.pdf (2 pages, 202872 bytes).
 PDF statistics:
  99 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream
