@@ -25,6 +25,7 @@
 \textbf{Householder} \textcolor{blue}{for $k=[1,n]:$} $x=A_{k:m,k}; v_k = sgn(x) \norm{x}e_k+x;v_k= \frac{v_k}{\norm{v_k}} $ \textcolor{fg}{for $j=[k,n]$} $A_{k:m,j} = A_{k:m,j} - 2v_k\left[ v_k^* A_{k:m,j} \right]$ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $2mn^2 - \frac{2n^3}{3} $. 
 \textbf{MG-S} $V=A;$\textcolor{blue}{for $i=[1,n]:$} $r_{ii}=\norm{v_i}; q_i = \frac{v_i}{r_{ii}}$;\textcolor{fg}{for $j=[i+1,n]$} $ v_j = v_j - ( q_i^T v_j )q_i; r_{ij} = q_i^Tv_j $ \textcolor{fg}{endfor} \textcolor{blue}{endfor}. $ 2mn^2$. 
 \textbf{Arnoldi:} $q_1 := \hat b; q_{k+1} h_{k+1,k} = \textcolor{fg}{Aq_k - \sum_{i=1}^k q_i h_{ik}}$; $h_{ik} = q_i^T (A q_k)$; $h_{k+1,k} := \textcolor{fg}{\norm{ v}} \rightarrow AQ_k := Q_k H_k + q_{k+1} [0 \ldots h_{k+1,k}]$.
+\textbf{Lanczos:} If $A = A^T$ for arnoldi, $AQ_k = Q_k T_k + q_{k+1}[0\ldots t_{k+1,k}]$. $T$ tridiag via $H_k = Q_k^T AQ_k$. Also have $t_{k+1} q_{k+1} = (A-t_{k,k}) q_k - t_{k-1,k}q_{k-1}$.
 \textbf{Givens} $3mn^2$
 \textbf{SVD:} $= \sum_i^{r:= \min{m,n}} u_i \sigma_i v_i^T$.
 \textbf{C-F:} $\sigma_i(A) \sigma_n(B) \leq \sigma_i(AB) \leq \sigma_i(A) \sigma_1(B)$
@@ -42,13 +43,13 @@ Then $p \leq 1/ \abs{T_k\left( \left[ -b-a \right]/\left[ b-a \right] \right)} \
 \textbf{Preconditioning:} For GMRES solve $MAx = Mb$ with $MA$ eigvals clustered far from 0, well conditioned. E.g. if $A=LU$ do $(LU)^{-1}$. For CG, $A=A^T$ difficult so want $M^T M \approx A^{-1}$.
 So want $M^TAMy=M^Tb$, same properties.
 \textbf{MP:} $\sigma(G) \in [\sqrt{m}- \sqrt{n},\sqrt{m}+\sqrt{n}] \rightarrow k_2 = O(1)$
-\textbf{Sketch:} with $ GA \hat x= Gb$, and via $C-F$ $\norm {G [A,b] [v,-1]^T} \leq (s+\sqrt{n+1}) \norm{R [v,-1]^T}$,
+\textbf{Sketch:} First $G = \mathbb{R}^{s \times m}$ so with $ GA \hat x= Gb$, and via $C-F$ $\norm {G [A,b] [v,-1]^T} \leq (s+\sqrt{n+1}) \norm{R [v,-1]^T}$,
 similar for lower bound via MP 
-$\rightarrow \norm{A \hat x-b}  \leq (\sqrt{s} + \sqrt{n+1})/(\sqrt{s} - \sqrt{n+1}) \norm{Ax-b}$
+$\rightarrow \norm{A \hat x-b}  \leq (\sqrt{s} + \sqrt{n+1})/(\sqrt{s} - \sqrt{n+1}) \norm{Ax-b}$.
 \textbf{Blend:} solve $\norm{(A\tilde R^{-1}) y-b}=0$ via CG;$k_2(A\tilde R^{-1}) = O(1)$ with $GA = \textcolor{blue}{\tilde Q\tilde R}$ \textcolor{fg}{PROOF:}
 $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat R R = \textcolor{blue}{\hat Q  (\hat R R)}\rightarrow \tilde R^{-1} = R^{-1} \hat R^{-1} \rightarrow k_2(A \tilde R^{-1}) = k_2(\hat R^{-1}) = O(1)$ by MP. $O(mn)$ to solve via normal
 \textbf{HMT:} For $X = n\times r$ let $AX = QR$, then if $A=U_r \Sigma_r V^T_r$, span($Q$)=span($U_r$) so $\hat A = Q Q^T A$ is a rank $r$ approximant.
-\textbf{HMT Proof:} Goal $ \norm{A- \hat A} = O(1) \norm{A-A_r}$. Have $(I-Q Q^T)AX=0$ so $A-\hat A = (A_n - QQ^T)A(I_n - XM^T)=0 \; \forall \; M^T$. Choose $M^T = (V^TX)^{\dagger}V^T$, $V \in n\times \hat r \leq r$. Let $XM^T=P$ s.t. $A(I-P)=A(I-VV^T)(I-P)$. 
+\textbf{HMT Proof:} Goal $ \norm{A- \hat A} = O(1) \norm{A-A_r}$. Have $(I-Q Q^T)AX=0$ so $A-\hat A = (I_m - QQ^T)A(I_n - XM^T)=0 \; \forall \; M^T$. Choose $M^T = (V^TX)^{\dagger}V^T$, $V \in n\times \hat r \leq r$. Let $XM^T=P$ s.t. $A(I-P)=A(I-VV^T)(I-P)$. 
 So $ \norm{A-\hat A} = \norm{(I_m-QQ^T) U_A \Sigma_A \textcolor{blue}{[\tilde V^T_{\hat r}, \tilde V_{\hat r+1}^T]^T(I-VV^T)}(I-P) }$. 
 If $V = \tilde V_r$ then $= \norm{(I_m-QQ^T) U_A \Sigma_A \textcolor{blue}{[0, \tilde V_{\hat r+1}]^T}(I-P) } \leq \norm{\Sigma_{\hat r+1}} \textcolor{blue}{\norm{I_n- XM^T}}$.
 Now note $\textcolor{blue}{\norm{I_n- XM^T}} = \norm{I_n - X (\tilde V_r^TX)^\dagger \tilde V_r^T} \leq 1 + \norm{X} \norm{(\tilde V_r^T X)^\dagger}$.
@@ -62,7 +63,8 @@ So $ \norm{XM^T} \leq  \frac{\sqrt{n}+ \sqrt{r}}{\sqrt{r} - \sqrt{\hat r}} $.
 \textbf{Schur:} Take $A v_1 = \lambda_1 v_1$; construct $U_1 = [v_1, V_\perp] \rightarrow A U_1 = U_1 [e_1,X]$. Repeat.
 \textbf{Conditioning} $\kappa_2(A) = \sigma_1 /\sigma_n = \norm{A}\norm{A^{-1}}$
 \textbf{Similarity:} $A \rightarrow P^{-1}AP$, same $\lambda$.
-\textbf{Pseud-Inv:} $A^\dagger  = V \Sigma^{-1} U^T = (A^T A)^{-1}A^T$. Else have $A^\dagger = A^T(AA^T)^{-1}$
+\textbf{Pseud-Inv:} $A^\dagger  = V \Sigma^{-1} U^T = (A^T A)^{-1}A^T$. Else have $A^\dagger = A^T(AA^T)^{-1}$.
+$M^\dagger = M^{-1}$ if full rank.
 \\ \textcolor{red}{CO:} 
 \textbf{BFGS:} $\gamma_k = \Delta \grad f_{k+1,k} = B_{k+1}(x_{k+1} - x_k) = B_{k+1} \alpha_k s_k$
 \textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $, with $J:=$ Jacobian of $r(x)$
