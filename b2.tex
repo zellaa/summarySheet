@@ -39,12 +39,12 @@ Next $A^{k-1} = (Q_1 \ldots Q_{k-1}) (R_{k-1} \ldots R_1)$, so $A_k = Q_k R_k = 
 \textbf{Cheb:} $T_k(x) = \frac{1}{2} (z^k + z^{-k}); 2xT_k = T_{k+1} + T_{k-1}$
 \textbf{Cheb Shift:} Choose $p(x) = T_k(\left[ 2x-b-a \right]/\left[ b-a \right])/T_k\left( \left[ -b-a \right]/\left[ b-a \right] \right)$ s.t. $p(0)=1$.
 Then $p \leq 1/ \abs{T_k\left( \left[ -b-a \right]/\left[ b-a \right] \right)} \leq 2\left( [\sqrt{\kappa}-1]/[\sqrt{\kappa} +1] \right)^k$
-\textbf{CG Conditions:} To show $r_{k+1}^Tr_k = 0$ first show $p_k^TAp_k = p_k^TA r_k$ via $\beta$ then show $p_k ^T r_k = r_k^T r_k$ via $p_{k-1}^Tr_k=0$.
+\textbf{CG Conditions:} To show $r_{k+1}^Tr_k = 0$ first show $p_k^TAr_k = p_k^TA p_k$ via sub for $r_k = p_k - \beta\ldots$ then show $p_k ^T r_k = r_k^T r_k$ via $p_{k-1}^Tr_k=0$.
 \textbf{Preconditioning:} For GMRES solve $MAx = Mb$ with $MA$ eigvals clustered far from 0, well conditioned. E.g. if $A=LU$ do $(LU)^{-1}$. For CG, $A=A^T$ difficult so want $M^T M \approx A^{-1}$.
 So want $M^TAMy=M^Tb$, same properties.
 \textbf{MP:} $\sigma(G) \in [\sqrt{m}- \sqrt{n},\sqrt{m}+\sqrt{n}] \rightarrow k_2 = O(1)$
-\textbf{Sketch:} First $G = \mathbb{R}^{s \times m}$ so with $ GA \hat x= Gb$, and via $C-F$ $\norm {G [A,b] [v,-1]^T} \leq (s+\sqrt{n+1}) \norm{R [v,-1]^T}$,
-similar for lower bound via MP 
+\textbf{Sketch:} First $G = \mathbb{R}^{s \times m}$ so with $\hat x = \argmin \norm{G(Ax-b)}$, and via $C-F$ $\norm {G [A,b] [v,-1]^T} \leq (\sqrt{s}+\sqrt{n+1}) \norm{R [v,-1]^T}$. Similarly \textcolor{fg}{$\norm {G [A,b] [v,-1]^T} \geq ((\sqrt{s}-\sqrt{n+1}))^{-1} \norm{R [v,-1]^T}$}.
+Then $ \norm{G(A \hat x-b)} \leq \norm{G(Ax-b)}$ so
 $\rightarrow \norm{A \hat x-b}  \leq (\sqrt{s} + \sqrt{n+1})/(\sqrt{s} - \sqrt{n+1}) \norm{Ax-b}$.
 \textbf{Blend:} solve $\norm{(A\tilde R^{-1}) y-b}=0$ via CG;$k_2(A\tilde R^{-1}) = O(1)$ with $GA = \textcolor{blue}{\tilde Q\tilde R}$ \textcolor{fg}{PROOF:}
 $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat R R = \textcolor{blue}{\hat Q  (\hat R R)}\rightarrow \tilde R^{-1} = R^{-1} \hat R^{-1} \rightarrow k_2(A \tilde R^{-1}) = k_2(\hat R^{-1}) = O(1)$ by MP. $O(mn)$ to solve via normal
@@ -52,7 +52,7 @@ $A=QR; GA = GQR = \hat G R$. Let $\hat G = \hat Q \hat R$ so $G A = \hat Q \hat 
 \textbf{HMT Proof:} Goal $ \norm{A- \hat A} = O(1) \norm{A-A_r}$. Have $(I-Q Q^T)AX=0$ so $A-\hat A = (I_m - QQ^T)A(I_n - XM^T)=0 \; \forall \; M^T$. Choose $M^T = (V^TX)^{\dagger}V^T$, $V \in n\times \hat r \leq r$. Let $XM^T=P$ s.t. $A(I-P)=A(I-VV^T)(I-P)$. 
 So $ \norm{A-\hat A} = \norm{(I_m-QQ^T) U_A \Sigma_A \textcolor{blue}{[\tilde V^T_{\hat r}, \tilde V_{\hat r+1}^T]^T(I-VV^T)}(I-P) }$. 
 If $V = \tilde V_r$ then $= \norm{(I_m-QQ^T) U_A \Sigma_A \textcolor{blue}{[0, \tilde V_{\hat r+1}]^T}(I-P) } \leq \norm{\Sigma_{\hat r+1}} \textcolor{blue}{\norm{I_n- XM^T}}$.
-Now note $\textcolor{blue}{\norm{I_n- XM^T}} = \norm{I_n - X (\tilde V_r^TX)^\dagger \tilde V_r^T} \leq 1 + \norm{X} \norm{(\tilde V_r^T X)^\dagger}$.
+Now note $\textcolor{blue}{\norm{I_n- XM^T}} = \norm{X (\tilde V_r^TX)^\dagger \tilde V_r^T} \leq \norm{X} \norm{(\tilde V_r^T X)^\dagger}$.
 Now $ \norm{X} \leq \sqrt{n} + \sqrt{r}$ by MP, and 
 $ \norm{(\tilde V_r^T X)^\dagger} = \sigma_n(\tilde V_r^T X)^{-1} \leq (\sqrt{r} - \sqrt{\hat r})^{-1}$ by MP. 
 So $ \norm{XM^T} \leq  \frac{\sqrt{n}+ \sqrt{r}}{\sqrt{r} - \sqrt{\hat r}} $.
@@ -66,10 +66,12 @@ So $ \norm{XM^T} \leq  \frac{\sqrt{n}+ \sqrt{r}}{\sqrt{r} - \sqrt{\hat r}} $.
 \textbf{Pseud-Inv:} $A^\dagger  = V \Sigma^{-1} U^T = (A^T A)^{-1}A^T$. Else have $A^\dagger = A^T(AA^T)^{-1}$.
 $M^\dagger = M^{-1}$ if full rank.
 \\ \textcolor{red}{CO:} 
+\textbf{Convex:} $f(x+ \alpha(y-x)) \leq  f(x) + \alpha(f(y)-f(x))$, or $f(y) \geq (y-x)^T \grad f(x)  + f(x)$ found via $g(t) = f(ty + (1-t)x) \leq tf(y) + (1-t)f(x)$, then $g'(t)$.
+Other way via noting $f(y) \geq \grad f(z) \left(y-z  \right) + f(z)$, and $f(x) \geq \grad f(z)(x-z) + f(z)$. $\times (1-t),t$ and add.
 \textbf{BFGS:} $\gamma_k = \Delta \grad f_{k+1,k} = B_{k+1}(x_{k+1} - x_k) = B_{k+1} \alpha_k s_k$
 \textbf{G-N:} $ \va*{x}_{k+1} = \va*{x}_k - \frac{\grad f_k}{J^T J} $, with $J:=$ Jacobian of $r(x)$
 \textbf{Linesearch Convergence:} Show $x_{k+1} - x_* = \Psi(x_k)-x_* = \Psi(x_* + e_k) -x_*$ and taylor expand.
-\textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian. Also note with EXACT linesearch for quadratic, $H(x-x_*) = -s$.
+\textbf{SD:} $\norm{x_{k+1}-x_*} \leq \left( k_2(H)-1 \right)/(k_2(H)+1) \norm{x_k-x_*}$ with $H$ hessian. Also note with EXACT linesearch for quadratic, $H(x-x_*) = -s$, and $a_k = \frac{s_k^T s_k}{s_k^THs_k}$ .
 \textbf{Rayleigh:} $ \frac{s^T H s}{ \norm{s}^2} \leq \norm{H}$
 \textbf{bArm:} To show existence of $\alpha$, have $\phi(\alpha) = f(x_k + \alpha_k s_k), \psi(\alpha) = \phi(\alpha) - \phi (0)- \beta \alpha \phi'(0) \leq 0$, show $\psi'(0) = (1-\beta) \phi'(0) \leq 0 \rightarrow \psi(\alpha) \downarrow$ with $\alpha$.
 \textbf{BFGS:} To show $H_{k+1} \geq 0$ nec. $\gamma^T \delta > 0$. Suff via $\gamma, \delta$ LI $\rightarrow $ use $\norm{\cdot}_H \rightarrow \gamma^T \delta > 0$.
@@ -115,4 +117,5 @@ Combine s.t. $\grad f_k - J_{Ak}^T \lambda_{AK}$ with $k \rightarrow *$ so get K
 \textbf{GLM Global Convergence:} With $f\in C^1, \grad f$ L-Cont, and $f$ bdd below, then $\grad f_l = 0$ or $\lim \min \left\{ \frac{\abs{\grad f^T s }}{ \norm{s}},\abs{s^T \grad f}  \right\}$ to $0$. In non-trivial case, via bArmijo, $f_k - f_{k+1} \geq - \beta \alpha_k  s_k^T \grad f_k  = \beta \alpha_k \abs{ s^T_k \grad f_k}$. Sum s.t. $f_0 - f_{k+1} \geq \beta \sum \alpha_k \abs{ s^T_k \grad f_k}$, so term in sum to $0$. For all $k$ successful we then have $\alpha_k \abs{s^T_k \grad f_k} \geq \frac{(1-\beta)\tau }{L } \left( \frac{\abs{s^T_k \grad f_k}}{ \norm{s_k} }  \right)^2 \geq 0$ so squared term to $0$. For unsuccesful steps $\alpha_k \geq \alpha_0$ so no norm term.
 \textbf{Convergence Newton LSearch:} Need $f\in C^2$ then if $H_k$ (hessian) bdd above and below, so $\lambda_n \leq \lambda(H_k) \leq \lambda_1$. So $\abs{s^T_k \grad f_k} \geq \lambda_1^{-1} \norm{\grad f_k}^2$. Also $ \norm{s_k}^2 \leq \lambda_n^{-2} \norm{\grad f_k}^2$. 
 Thus $\lim \min \left\{ \lambda_n \lambda_1^{-1} \norm{\grad f}, \lambda_1^{-1} \norm{\grad f}^2 \right\} \rightarrow 0$ from GLM Convergence Thm.
+\textbf{Newton Convergence:} $f\in C^2, \grad f_*=0, H_*$ nonsing, $H_k$ L-Cont, then $x_k \rightarrow x_*$ quadratic if $x_k$ well defined for $k\geq k_0$.
 \end{document}

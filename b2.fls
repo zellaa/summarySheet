@@ -81,6 +81,10 @@ INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT /usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
@@ -126,7 +130,6 @@ INPUT /usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
@@ -200,7 +203,7 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 INPUT /usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
 INPUT /usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
@@ -220,7 +223,6 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
-INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
@@ -232,6 +234,7 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex
+INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -325,7 +328,6 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
@@ -495,6 +497,17 @@ INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT /usr/share/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
 INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
 INPUT /usr/share/texmf-dist/tex/latex/cancel/cancel.sty
