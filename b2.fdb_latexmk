@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1681557784 "b2.tex" "b2.pdf" "b2" 1681557784 0
+["pdflatex"] 1681817852 "b2.tex" "b2.pdf" "b2" 1681817853 0
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1680514707 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1680514707 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1680514707 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -142,8 +142,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1680514707 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1681411535 4492742 8db123526737e6ccea820a7a997314c8 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1681411508 8204104 e6733de391ff99b2ea30249e7d1cab5e ""
-  "b2.aux" 1681557784 1198 2c3de2918e7e1beb4737fd49b1f1d700 "pdflatex"
-  "b2.tex" 1681557783 17170 d7f4258fcb19c3b60eb0be23c0168904 ""
+  "b2.aux" 1681817852 1198 2c3de2918e7e1beb4737fd49b1f1d700 "pdflatex"
+  "b2.tex" 1681817852 17170 38f3ab292d32398943525d8ab38ddcaa ""
   "stylefile" 0 -1 0 ""
   (generated)
   "b2.aux"

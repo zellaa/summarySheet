@@ -79,7 +79,7 @@ Other way via noting $f(y) \geq \grad f(z) \left(y-z  \right) + f(z)$, and $f(x)
 \textcolor{fg}{PROOF:} If $y_* := J^\dagger_* \grad f_* \rightarrow \norm{y_k - y_*} = \norm{J^\dagger_* \grad f_* - y_k} \leq \cancel{\norm{J_k^{\dagger}\grad f_k - J^\dagger_* \grad f_*}} + \norm{J_k^\dagger \grad f_k - y_k}$.
 Next $\norm{J_k^\dagger \grad f_k - y_k} \leq \norm{J^\dagger_k}\norm{\grad_\sigma \Phi} \rightarrow 0 $. 
 Also, $\grad f_* - J^T_* y_* \rightarrow 0$, and $c_{k\rightarrow *} = - \sigma^{k\rightarrow *} y_{k \rightarrow *} = 0$ so $x_* \rightarrow KKT$
-\textbf{Quad Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 f, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
+\textbf{Quad Pen. Meth Newt} Have $w = (J \Delta x + c)/\sigma$ so $[\grad^2 L, J^T;J,-\sigma I] [\Delta x, w]^T = -[\grad f,c]$
 \textbf{Trust Region Radius:} $\rho_k := (f(x_k) - f(x_k+ s_k))/(f(x_k) - m_k(s_k))$
 \textbf{TR-Method:} If $\rho \geq 0.9 $ then double radius, update step $x_{k+1} = x_k + s_k$. If $\rho \geq 0.1$ then same radius, update step. If $\rho$ small shrink radius, don't update step.
 \textbf{Cauchy:} \textcolor{blue}{Is the point on gradient which minimises the quadratic model within TR}. Want $m_k(s_k) \leq m_k(s_{kc})$, where \textcolor{fg}{$s_{kc} := - \alpha_{kc} \grad f(x_k)$}, and \textcolor{fg}{$\alpha_{kc}:= \argmin m_k\left( \alpha \grad f(x_k) \right)$} subject to $\norm{\alpha \grad f} \leq \Delta$, i.e. $\alpha_{max} := \Delta/\norm{ \grad f}$.
